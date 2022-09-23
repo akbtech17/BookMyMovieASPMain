@@ -1,18 +1,67 @@
-html {
-  font-size: 14px;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&disk=play=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+* {
+    box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
-  html {
+html {
     font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    font-family: quicksand, sans-serif;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*header css*/
+.top-nav {
+    background-color: white;
+    padding: 0;
+    border-bottom: 1px solid #e72929;
+}
+
+.top-nav-options a {
+    color: #af1313;
+    padding: 1em;
+    display: inline-block;
+    list-style-type: none;
+}
+
+.top-nav-container > a {
+    color: white;
+}
+
+.top-nav-options > a:hover {
+    background-color: #e72929;
+    color: white;
+}
+
+.top-nav-container {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: bold;
+    padding: 1em;
+    background-color: #af1313;
+    color:white;
+}
+
+
+.top-nav-nav ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.top-nav-options a {
+    
 }
