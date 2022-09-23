@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Movie>
 
-<h1> List of Movies</h1>
+@*<h1> List of Movies</h1>
 <hr />
 
 <table border="1">
@@ -17,4 +17,41 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@
+
+<ul>
+    <li *ngFor="let movie of movies">
+        @foreach(var data in @Model) 
+        {
+            <a href="#">
+                @*<img src="{{movie.imageUrl}}" alt="foods-image">*@
+                <div class="content">
+                    <div class="movie-title">
+                        <div class="name">
+                            @Html.DisplayFor(d => data.MovieName)
+                        </div>
+                        <span class="favorite">
+                            ❤
+                            @Html.DisplayFor(d => data.Ratings)
+                        </span>
+                    </div>
+                    <div class="product-item-footer">
+                        <div class="genres">
+                            @Html.DisplayFor(d => data.Genres)
+                        </div>
+                        <div class="duration">
+                            <span>🕘</span>
+                            @Html.DisplayFor(d => data.Duration)
+                        </div>
+                    </div>
+                    <div class="price">
+                        @Html.DisplayFor(d => data.ShowTime)
+                    </div>
+                    <div class="price">
+                        @Html.DisplayFor(d => data.CostPerSeat)
+                    </div>
+                </div>
+            </a>
+        }
+    </li>
+</ul>
