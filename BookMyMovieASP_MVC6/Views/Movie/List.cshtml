@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Movie>
+
+<h1> List of Movies</h1>
+<hr />
+
+<table border="1">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(d => d.MovieId)</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in @Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(d => data.MovieId)</td>
+            </tr>
+        }
+    </tbody>
+</table>

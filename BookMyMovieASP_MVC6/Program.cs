@@ -1,7 +1,15 @@
+using BookMyMovieASP_MVC6.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<BookMyMovieContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("mycon"))
+);
+builder.Services.AddTransient<IMovieRepository, MovieRepository>();
 
 var app = builder.Build();
 
