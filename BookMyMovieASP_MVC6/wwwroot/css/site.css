@@ -39,6 +39,9 @@ a {
 }
 
 .top-nav-options > a:hover {
+    opacity: 0.9;
+    transition: 0.3s;
+    cursor: pointer;
     background-color: #e72929;
     color: white;
 }
@@ -62,6 +65,90 @@ a {
     margin: 0;
 }
 
-.top-nav-options a {
-    
+
+/*movie list css*/
+.ml-img {
+    height: 70%;
+}
+
+.ml-movie-title {
+    display: flex;
+}
+
+.ml-name {
+    flex: 0.9;
+}
+
+.movie-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.ml-a {
+    height: auto;
+    width: 17rem;
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: #e72929;
+}
+
+.ml-a:hover {
+   opacity: 0.9;
+   transition: 0.3s;
+   cursor: pointer;
+   color: #e72929;
+}
+
+.ml-content {
+    padding: .5rem 1rem;
+    position: relative;
+}
+
+.ml-favorite {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-size: 1.2rem;
+}
+
+.favorite.not {
+    color: black;
+}
+
+.star {
+    margin-bottom: .2rem;
+}
+
+.ml-product-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ml-genres {
+    border-radius: 2rem;
+    background-color: whitesmoke;
+    color: grey;
+    font-size: .8rem;
+    margin-right: .3rem;
+    display: inline-block;
+}
+
+.ml-duration {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.ml-price {
+    color: #424242;
+    margin-top: .2rem;
 }

@@ -1,46 +1,38 @@
 ﻿@model IEnumerable<Movie>
 
-
-<html>
-    <head>
-        <link rel="stylesheet" href="~/css/MovieList.css" asp-append-version="true" />
-    </head>
-    <body>
-        <ul>
-            <li *ngFor="let movie of movies">
-            @foreach (var data in @Model)
-            {
-                <a href="#" class="ml-a">
-                    @*<img class="ml-image" src="{{movie.imageUrl}}" alt="foods-image">*@
-                    <div class="ml-content">
-                        <div class="ml-movie-title">
-                            <div class="ml-name">
-                                @Html.DisplayFor(d => data.MovieName)
-                            </div>
-                            <span class="ml-favorite">
-                                ❤
-                                @Html.DisplayFor(d => data.Ratings)
-                            </span>
+<ul class="movie-list">
+    <li class="movie-item">
+        @foreach (var data in @Model)
+        {
+            <a href="" class="ml-a">
+                <img class="ml-image" src="~/images/@Html.DisplayFor(d => data.ImageUrl)" alt="foods-image">
+                <div class="ml-content">
+                    <div class="ml-movie-title">
+                        <div class="ml-name">
+                            @Html.DisplayFor(d => data.MovieName)
                         </div>
-                        <div class="ml-product-item-footer">
-                            <div class="ml-genres">
-                                @Html.DisplayFor(d => data.Genres)
-                            </div>
-                            <div class="ml-duration">
-                                <span>🕘</span>
-                                @Html.DisplayFor(d => data.Duration)
-                            </div>
+                        <span class="ml-favorite">
+                            ❤
+                            @Html.DisplayFor(d => data.Ratings)
+                        </span>
+                    </div>
+                    <div class="ml-product-item-footer">
+                        <div class="ml-genres">
+                            @Html.DisplayFor(d => data.Genres)
                         </div>
-                        <div class="ml-price">
-                            @Html.DisplayFor(d => data.ShowTime)
-                        </div>
-                        <div class="ml-price">
-                            @Html.DisplayFor(d => data.CostPerSeat)
+                        <div class="ml-duration">
+                            <span>🕘</span>
+                            @Html.DisplayFor(d => data.Duration)
                         </div>
                     </div>
-                </a>
-            }
-        </li>
-    </ul>
-    </body>
-</html>
+                    <div class="ml-price">
+                        @Html.DisplayFor(d => data.ShowTime)
+                    </div>
+                    <div class="ml-price">
+                        @Html.DisplayFor(d => data.CostPerSeat)
+                    </div>
+                </div>
+            </a>
+        }
+    </li>
+</ul>
