@@ -1,0 +1,44 @@
+﻿@model Movie
+
+<div class="md-containerr">
+    <img class="md-image" src="~/images/@Html.DisplayFor(d => d.ImageUrl)" alt="foods-image">
+    <div class="md-content">
+        <div class="md-title">
+            <div class="md-movie-name">@Html.DisplayFor(d => d.MovieName)</div>
+            <span class="md-favorite">❤@Html.DisplayFor(d => d.Ratings)%</span>
+        </div>
+        <div class="md-product-item-footer">
+            <div class="md-genres">
+                @Html.DisplayFor(d => d.Genres)
+            </div>
+
+        </div>
+
+        <div class="md-movie-pricing-details">
+            <div class="md-showtime-language">
+                <div class="md-show-time">
+                    @Html.DisplayFor(d => d.ShowTime)
+                </div>
+                <!-- {{movieDetails.costPerSeat | currency:'INR'}} -->
+                <div class="md-movie-price-age">
+                    <div class="language">
+                        @Html.DisplayFor(d => d.Language)
+                    </div>
+                    <div class="md-age-rating">
+                        @Html.DisplayFor(d => d.AgeRating)
+                    </div>
+                </div>
+            </div>
+            <div class="md-duration-movie-type">
+                <div class="md-duration">
+                    <span>🕘</span>
+                    @Html.DisplayFor(d => d.Duration)
+                </div>
+                <div class="md-movie-type">
+                    @Html.DisplayFor(d => d.MovieType)
+                </div>
+            </div>
+        </div>
+        <button class="md-btn">Book Now</button>
+    </div>
+</div>

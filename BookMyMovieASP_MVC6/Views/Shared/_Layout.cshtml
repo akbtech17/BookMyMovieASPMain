@@ -9,17 +9,20 @@
     @*<link rel="stylesheet" href="~/BookMyMovieASP_MVC6.styles.css" asp-append-version="true" />*@
 </head>
 <body>
-    <header class="top-nav">
-        <div class="top-nav-container">
-            <a routerLink="" class="logo">BMM 💃 Book My Movie</a>
-            <nav class="top-nav-nav">
-                <ul>
-                    <li class="top-nav-options">
-                        <a  asp-area="" asp-controller="Movie" asp-action="List">SignIn</a>
-                        <a  asp-area="" asp-controller="Movie" asp-action="List">Register</a>
-                        <a  asp-area="" asp-controller="Movie" asp-action="List">Movie List</a>
-                        <a  asp-area="" asp-controller="Movie" asp-action="List">Movie Details</a>
+    <header class="main-header">
+        <div class="header-containerr">
+            <a class="header-logo">BMM 💃 Book My Movie</a>
+            <nav>
+                <ul class="header-links-list">
+                    <li class="header-links">
+                        <a asp-controller="Movie" asp-action="List">SignIn</a>
+                        <a asp-controller="Movie" asp-action="List">Register</a>
                     </li>
+                    @*
+                    <li class="header-links" *ngIf="customerEmail">
+                    Hi, {{customerFirstName}}
+                    <a (click)="OnLogout()">Logout</a>
+                    </li>*@
                 </ul>
             </nav>
         </div>

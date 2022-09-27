@@ -1,20 +1,21 @@
 ﻿@model IEnumerable<Movie>
 
-<ul class="movie-list">
-    <li class="movie-item">
+
+<div class="ml-filter-comp">
+    <input type="text" placeholder="Search Movie from BMM">
+    <button type="button">Search</button>
+</div>
+<ul class="ml-ul">
+    
         @foreach (var data in @Model)
         {
-            <a href="" class="ml-a">
+            <li>
+            <a asp-controller="Movie" asp-action="Details">
                 <img class="ml-image" src="~/images/@Html.DisplayFor(d => data.ImageUrl)" alt="foods-image">
                 <div class="ml-content">
-                    <div class="ml-movie-title">
-                        <div class="ml-name">
-                            @Html.DisplayFor(d => data.MovieName)
-                        </div>
-                        <span class="ml-favorite">
-                            ❤
-                            @Html.DisplayFor(d => data.Ratings)
-                        </span>
+                    <div class="ml-title">
+                        <div class="ml-movie-name">@Html.DisplayFor(d => data.MovieName)</div>
+                        <span class="ml-favorite">❤@Html.DisplayFor(d => data.Ratings)%</span>
                     </div>
                     <div class="ml-product-item-footer">
                         <div class="ml-genres">
@@ -25,14 +26,26 @@
                             @Html.DisplayFor(d => data.Duration)
                         </div>
                     </div>
-                    <div class="ml-price">
+                    <div class="ml-show-time">
                         @Html.DisplayFor(d => data.ShowTime)
                     </div>
-                    <div class="ml-price">
-                        @Html.DisplayFor(d => data.CostPerSeat)
+                    <div class="ml-movie-pricing-details">
+                        <!-- {{movie.costPerSeat | currency:'INR'}} -->
+                        <div class="ml-movie-price-age">
+                            <div class="language">
+                                @Html.DisplayFor(d => data.Language)
+                            </div>
+                            <div class="ml-age-rating">
+                                @Html.DisplayFor(d => data.AgeRating)
+                            </div>
+                        </div>
+                        <div class="ml-movie-type">
+                            @Html.DisplayFor(d => data.MovieType)
+                        </div>
                     </div>
                 </div>
             </a>
+        </li>
         }
-    </li>
+    
 </ul>
