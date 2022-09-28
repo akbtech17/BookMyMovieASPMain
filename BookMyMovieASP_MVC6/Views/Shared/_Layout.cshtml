@@ -6,7 +6,6 @@
     <title>@ViewData["Title"] - BookMyMovieASP_MVC6</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/BookMyMovieASP_MVC6.styles.css" asp-append-version="true" />
     @*<link rel="stylesheet" href="~/BookMyMovieASP_MVC6.styles.css" asp-append-version="true" />*@
 </head>
 <body>
@@ -16,30 +15,14 @@
             <nav>
                 <ul class="header-links-list">
                     <li class="header-links">
-                        <a asp-controller="Movie" asp-action="List">SignIn</a>
-                        <a asp-controller="Movie" asp-action="List">Register</a>
+                        <a asp-controller="User" asp-action="SignIn">SignIn</a>
+                        <a asp-controller="User" asp-action="Register">Register</a>
                     </li>
-                    @*
-                    <li class="header-links" *ngIf="customerEmail">
-                    Hi, {{customerFirstName}}
-                    <a (click)="OnLogout()">Logout</a>
-                    </li>*@
                 </ul>
             </nav>
         </div>
     </header>
     @RenderBody()
-    @*<div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>*@
-
-    @*<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - BookMyMovieASP_MVC6 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

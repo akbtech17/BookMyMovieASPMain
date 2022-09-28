@@ -1,0 +1,44 @@
+﻿<app-header></app-header>
+<br />
+<br />
+<br />
+<br />
+<div class="container" style="padding-top:20px;">
+    <div class="row">
+        <div class="col-md-5 mx-auto">
+            <div class="card-group">
+                <div class="card p-4">
+                    <div class="card-body">
+                        <form name="form" #f="ngForm" (submit)="onSubmit()">
+                            <h1 style="text-align:center; color:#e72929;">Sign In</h1>
+
+                            <div class="input-group mb-3">
+                                <!-- <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="icon-user mt-4"></i></span>
+                                </div>   -->
+                                <input type="text" name="UserName" class="form-control sty1" placeholder="Email" required [(ngModel)]="creds.email">
+                            </div>
+                            <div class="input-group mb-4 mt-2">
+                                <!-- <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="icon-lock mt-4"></i></span>
+                                </div>   -->
+                                <input type="password" name="Passward" class="form-control"
+                                       placeholder="Password" required [(ngModel)]="creds.password">
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-success px-4">Login</button>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <button type="button" class="btn btn-link px-4 ">Forgot password?</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     
