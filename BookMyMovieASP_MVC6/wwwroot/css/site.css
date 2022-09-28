@@ -76,7 +76,6 @@ body {
     transition: 0.3s;
     cursor: pointer;
 }
-
 /*movie list css*/
 .ml-image {
     height: 23rem;
@@ -99,7 +98,7 @@ body {
         margin-bottom: 0.5rem;
     }
 
-        .ml-ul li a{
+        .ml-ul li a {
             background-color: white;
             height: auto;
             width: 17rem;
@@ -330,8 +329,8 @@ body {
     font-size: 1.8rem;
 }
 
-    .md-btn:hover {
-        opacity: 0.9;
-        transition: 0.3s;
-        cursor: pointer;
-    }
+.md-btn:hover {
+    opacity: 0.9;
+    transition: 0.3s;
+    cursor: pointer;
+ }
