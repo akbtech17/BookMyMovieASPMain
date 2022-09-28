@@ -15,9 +15,9 @@ namespace BookMyMovieASP_MVC6.Controllers
             var data = repo.GetMovies();
             return View(data);
         }
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            var data = repo.GetMovieById(1);
+            var data = repo.GetMovieById(id);
             return View(data);
         }
 

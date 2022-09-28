@@ -6,11 +6,10 @@
     <button type="button">Search</button>
 </div>
 <ul class="ml-ul">
-    
         @foreach (var data in @Model)
         {
             <li>
-            <a asp-controller="Movie" asp-action="Details">
+                <a href="@Url.Action("Details","Movie", new {id = data.MovieId})">
                 <img class="ml-image" src="~/images/@Html.DisplayFor(d => data.ImageUrl)" alt="foods-image">
                 <div class="ml-content">
                     <div class="ml-title">
@@ -47,5 +46,4 @@
             </a>
         </li>
         }
-    
 </ul>
