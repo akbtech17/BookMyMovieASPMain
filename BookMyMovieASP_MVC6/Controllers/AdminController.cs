@@ -1,15 +1,16 @@
 ﻿using BookMyMovieASP_MVC6.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BookMyMovieASP_MVC6.Controllers
 {
     public class AdminController : Controller
     {
-        IMovieRepository repo;
+        IMovieRepository movieRepository;
         IAdminRepository adminRepository;
         public AdminController(IMovieRepository _repo, IAdminRepository _repo2)
         {
-            this.repo = _repo;
+            this.movieRepository = _repo;
             adminRepository = _repo2;
         }
 
@@ -34,19 +35,30 @@ namespace BookMyMovieASP_MVC6.Controllers
  
         public IActionResult MovieList()
         {
-            var data = repo.GetMovies();
+            var data = movieRepository.GetMovies();
             return View(data);
         }
 
         public IActionResult MovieDetails()
         {
-            var data = repo.GetMovieById(1);
+            var data = movieRepository.GetMovieById(1);
             return View(data);
         }
 
+        [HttpGet]
         public IActionResult AddMovie()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddMovie(Akbmovie movie)
+        {
+            if (ModelState.IsValid) {
+                movieRepository.AddMovie(movie);
+                return RedirectToAction("List", "Movie");
+            }
+            return View(movie);
         }
 
         public IActionResult EditMovie()

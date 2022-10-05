@@ -472,3 +472,16 @@ p.text {
     transition: 0.3s;
     transform: scale(1.01);
 }
+
+/*Add Movie*/
+.am-form-row {
+    display: flex;
+}
+
+.am-form-row-label {
+    flex: 0.4;
+}
+
+.am-form-row-input {
+    flex: 0.7;
+}

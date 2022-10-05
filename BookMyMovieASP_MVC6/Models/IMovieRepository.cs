@@ -4,5 +4,7 @@
     {
         List<Akbmovie> GetMovies();
         Akbmovie GetMovieById(int id);
+
+        void AddMovie(Akbmovie movie);
     }
 }

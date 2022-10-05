@@ -1,1 +1,135 @@
-﻿<h1 style="color:white;">Add Movie</h1>
+﻿@model Akbmovie;
+<br />
+<div class="container" style="padding-top:20px;">
+    <div class="row">
+        <div class="col-md-7 mx-auto">
+            <div class="card-group">
+                <div class="card p-4">
+                    <div class="card-body">
+                        <form class="am-form" asp-action="addmovie">
+                            <h1 style="text-align:center; color:#e72929;">Add Movie</h1>
+
+                            <div class="input-group mb-3 am-form-row">
+                                <div class="form-text am-form-row-label">Movie Name</div>
+                                <input type="text"
+                                       name="movieName"
+                                       class="form-control sty1 am-form-row-input"
+                                       placeholder="eg, Brahmastra"
+                                       asp-for="MovieName"
+                                >
+                            </div>
+                            
+
+                            <div class="input-group mb-4 mt-2 am-form-row">
+                                <div class="form-text am-form-row-label">Release Date</div>
+                                <input 
+                                    type="datetime-local" 
+                                    name="releaseDate" 
+                                    class="form-control am-form-row-input"
+                                    placeholder="" 
+                                    asp-for="ReleaseDate"
+                                >
+                            </div>
+
+                            <div class="input-group mb-3 am-form-row">
+                                <div class="form-text am-form-row-label">Ratings (%)</div>
+                                <input type="number"
+                                       name="ratings"
+                                       class="form-control am-form-row-input sty1"
+                                       placeholder=""
+                                       asp-for="Ratings"
+                                >
+                            </div>
+                            
+
+                            <div class="input-group am-form-row mb-4 mt-2">
+                                <div class="form-text am-form-row-label">Genres</div>
+                                <input type="text"
+                                       name="genres"
+                                       class="form-control am-form-row-input"
+                                       placeholder="eg, Action, Adventure, Fantasy"
+                                       asp-for="Genres"
+                                >
+                            </div>
+                            
+
+                            <div class="input-group am-form-row mb-3">
+                                <div class="form-text am-form-row-label">Image Url</div>
+                                <input type="text" name="imageUrl" class="form-control am-form-row-input sty1" placeholder="Image Url" required [(ngModel)]="movieData.imageUrl">
+                            </div>
+
+                            <div class="input-group am-form-row mb-4 mt-2">
+                                <div class="form-text am-form-row-label">Cost Per Seat (₹)</div>
+                                <input type="number"
+                                       name="costPerSeat"
+                                       class="form-control am-form-row-input"
+                                       placeholder="eg, ₹230"
+                                       asp-for="CostPerSeat"
+                                >
+                            </div>
+                            
+
+                            <div class="input-group am-form-row mb-3">
+                                <div class="form-text am-form-row-label">Show Time</div>
+                                <input type="datetime-local"
+                                       name="showTime"
+                                       class="form-control am-form-row-input sty1"
+                                       asp-for="ShowTime"
+                                >
+                            </div>
+
+                            <div class="input-group am-form-row mb-4 mt-2">
+                                <div class="form-text am-form-row-label">Duration</div>
+                                <input type="text"
+                                       name="duration"
+                                       class="form-control am-form-row-input"
+                                       placeholder="eg, 2h 13m" 
+                                       asp-for="Duration"
+                                >
+                            </div>
+                           
+                            <div class="input-group am-form-row mb-3">
+                                <div class="form-text am-form-row-label">Age Rating</div>
+                                <input type="text"
+                                       name="ageRating"
+                                       class="form-control am-form-row-input sty1"
+                                       placeholder="eg, UA"
+                                       asp-for="AgeRating"
+                                >
+                            </div>
+
+                            <div class="input-group am-form-row mb-4 mt-2">
+                                <div class="form-text am-form-row-label">Language</div>
+                                <input type="text"
+                                       name="language"
+                                       class="form-control am-form-row-input"
+                                       placeholder="eg, English"
+                                       asp-for="Language"
+                                >
+                            </div>
+                            
+                            <div class="input-group am-form-row mb-3">
+                                <div class="form-text am-form-row-label">Theatre Type</div>
+                                <input type="text"
+                                       name="movieType"
+                                       class="form-control am-form-row-input sty1"
+                                       placeholder="eg, 4D MAX"
+                                       asp-for="MovieType"
+                                >
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-success px-4">Add Movie</button>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <button type="button" class="btn btn-link px-4" routerLink="/admin/movielist">Cancel?</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     

@@ -3,6 +3,14 @@
     public class MovieRepository: IMovieRepository
     {
         Db01Context db = new Db01Context();
+
+        public void AddMovie(Akbmovie movie)
+        {
+            movie.MovieId = null;
+            db.Add(movie);
+            db.SaveChanges();
+        }
+
         public Akbmovie GetMovieById(int id)
         {
             var data = db.Akbmovies.Where(movie => movie.MovieId == id).FirstOrDefault();
