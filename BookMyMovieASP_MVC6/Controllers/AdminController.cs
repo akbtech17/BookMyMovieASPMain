@@ -16,19 +16,22 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult SignIn()
         {
-            Akbadmin akbadmin = new Akbadmin(); 
-            return View(akbadmin);
+            //Akbadmin akbadmin = new Akbadmin(); 
+            //return View(akbadmin);
+            return View();
         }
 
         [HttpPost]
         public IActionResult SignIn(Akbadmin admin)
         {
-            if(adminRepository.ValidateSignIn(admin.Email, admin.Password)) {
+            if (adminRepository.ValidateSignIn(admin.Email, admin.Password))
+            {
                 return RedirectToAction("MovieList");
             }
             return View(admin);
         }
 
+ 
         public IActionResult MovieList()
         {
             var data = repo.GetMovies();
