@@ -11,6 +11,7 @@ builder.Services.AddDbContext<Db01Context>(options => options.UseSqlServer(
 );
 builder.Services.AddTransient<IMovieRepository, MovieRepository>();
 builder.Services.AddTransient<IAdminRepository, AdminRepository>();
+builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
 
 var app = builder.Build();
 
