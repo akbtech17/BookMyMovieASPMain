@@ -27,6 +27,7 @@ namespace BookMyMovieASP_MVC6.Controllers
         {
             if (adminRepository.ValidateSignIn(admin.Email, admin.Password))
             {
+                AdminStore.Email = admin.Email;
                 return RedirectToAction("MovieList");
             }
             return View(admin);
