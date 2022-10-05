@@ -10,6 +10,7 @@ builder.Services.AddDbContext<Db01Context>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("mycon"))
 );
 builder.Services.AddTransient<IMovieRepository, MovieRepository>();
+builder.Services.AddTransient<IAdminRepository, AdminRepository>();
 
 var app = builder.Build();
 
