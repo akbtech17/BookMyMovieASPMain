@@ -2,9 +2,9 @@
 
 namespace BookMyMovieASP_MVC6.Controllers
 {
-    public class AdminController1 : Controller
+    public class AdminController : Controller
     {
-        public IActionResult Index()
+        public IActionResult SignIn()
         {
             return View();
         }
