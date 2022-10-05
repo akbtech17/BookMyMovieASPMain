@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace BookMyMovieASP_MVC6.Models
 {
-    public partial class Movie
+    public partial class Akbmovie
     {
-        public int MovieId { get; set; }
+        public int? MovieId { get; set; }
         public string MovieName { get; set; } = null!;
         public DateTime? ReleaseDate { get; set; }
         public int? Ratings { get; set; }

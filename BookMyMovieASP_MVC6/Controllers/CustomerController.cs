@@ -2,7 +2,7 @@
 
 namespace BookMyMovieASP_MVC6.Controllers
 {
-    public class UserController : Controller
+    public class CustomerController : Controller
     {
         public IActionResult SignIn()
         {

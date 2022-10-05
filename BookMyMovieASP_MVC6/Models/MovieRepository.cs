@@ -2,16 +2,16 @@
 {
     public class MovieRepository: IMovieRepository
     {
-        BookMyMovieContext db = new BookMyMovieContext();
-        public Movie GetMovieById(int id)
+        Db01Context db = new Db01Context();
+        public Akbmovie GetMovieById(int id)
         {
-            var data = db.Movies.Where(movie => movie.MovieId == id).FirstOrDefault();
+            var data = db.Akbmovies.Where(movie => movie.MovieId == id).FirstOrDefault();
             return data;
         }
 
-        public List<Movie> GetMovies()
+        public List<Akbmovie> GetMovies()
         {
-            var data = db.Movies.ToList();
+            var data = db.Akbmovies.ToList();
             return data;
         }
     }

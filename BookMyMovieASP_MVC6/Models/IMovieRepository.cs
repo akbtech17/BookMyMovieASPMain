@@ -2,7 +2,7 @@
 {
     public interface IMovieRepository
     {
-        List<Movie> GetMovies();
-        Movie GetMovieById(int id);
+        List<Akbmovie> GetMovies();
+        Akbmovie GetMovieById(int id);
     }
 }
