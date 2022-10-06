@@ -18,6 +18,7 @@
                                        asp-for="MovieName"
                                 >
                             </div>
+                            <span asp-validation-for="MovieName" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
                             
 
                             <div class="input-group mb-4 mt-2 am-form-row">
@@ -30,6 +31,7 @@
                                     asp-for="ReleaseDate"
                                 >
                             </div>
+                            <span asp-validation-for="ReleaseDate" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
 
                             <div class="input-group mb-3 am-form-row">
                                 <div class="form-text am-form-row-label">Ratings (%)</div>
@@ -40,6 +42,7 @@
                                        asp-for="Ratings"
                                 >
                             </div>
+                            <span asp-validation-for="Ratings" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
                             
 
                             <div class="input-group am-form-row mb-4 mt-2">
@@ -51,12 +54,15 @@
                                        asp-for="Genres"
                                 >
                             </div>
+                            <span asp-validation-for="Genres" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
                             
 
                             <div class="input-group am-form-row mb-3">
                                 <div class="form-text am-form-row-label">Image Url</div>
                                 <input type="text" name="imageUrl" class="form-control am-form-row-input sty1" placeholder="Image Url" required [(ngModel)]="movieData.imageUrl">
                             </div>
+
+                            <span asp-validation-for="ImageUrl" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
 
                             <div class="input-group am-form-row mb-4 mt-2">
                                 <div class="form-text am-form-row-label">Cost Per Seat (₹)</div>
@@ -67,6 +73,7 @@
                                        asp-for="CostPerSeat"
                                 >
                             </div>
+                            <span asp-validation-for="CostPerSeat" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
                             
 
                             <div class="input-group am-form-row mb-3">
@@ -77,6 +84,7 @@
                                        asp-for="ShowTime"
                                 >
                             </div>
+                            <span asp-validation-for="ShowTime" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
 
                             <div class="input-group am-form-row mb-4 mt-2">
                                 <div class="form-text am-form-row-label">Duration</div>
@@ -87,6 +95,7 @@
                                        asp-for="Duration"
                                 >
                             </div>
+                            <span asp-validation-for="Duration" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
                            
                             <div class="input-group am-form-row mb-3">
                                 <div class="form-text am-form-row-label">Age Rating</div>
@@ -97,6 +106,7 @@
                                        asp-for="AgeRating"
                                 >
                             </div>
+                            <span asp-validation-for="AgeRating" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
 
                             <div class="input-group am-form-row mb-4 mt-2">
                                 <div class="form-text am-form-row-label">Language</div>
@@ -107,6 +117,7 @@
                                        asp-for="Language"
                                 >
                             </div>
+                            <span asp-validation-for="Language" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
                             
                             <div class="input-group am-form-row mb-3">
                                 <div class="form-text am-form-row-label">Theatre Type</div>
@@ -117,6 +128,7 @@
                                        asp-for="MovieType"
                                 >
                             </div>
+                            <span asp-validation-for="MovieType" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
 
                             <div class="row">
                                 <div class="col-6">
@@ -132,4 +144,8 @@
             </div>
         </div>
     </div>
-</div>     
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
