@@ -6,6 +6,23 @@
     <title>@ViewData["Title"] - BookMyMovieASP_MVC6</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <link media="screen" rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+    <script type="text/javascript">
+
+        function success(msg) {
+
+            toastr.option = {
+                "debug": false,
+                "positionClass": "toast-top-center",
+                "Onclick": null
+            }
+            toastr.success(msg, "Success");
+            return false;
+        }
+    </script>
 </head>
 <body>
     <header class="main-header">

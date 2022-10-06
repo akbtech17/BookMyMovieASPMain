@@ -1,7 +1,10 @@
 ﻿using BookMyMovieASP_MVC6.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
+
 
 namespace BookMyMovieASP_MVC6.Controllers
 {
@@ -30,7 +33,6 @@ namespace BookMyMovieASP_MVC6.Controllers
             {
                 AdminStore.Email = admin.Email;
                 AdminStore.Name = adminRepository.GetAdminDetails(admin.Email).FirstName;
-                /*return RedirectToAction("MovieList", new { adminName = AdminName});*/
                 return RedirectToAction("MovieList");
             }
             return View(admin);
