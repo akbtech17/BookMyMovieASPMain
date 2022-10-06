@@ -41,7 +41,11 @@
                                     <button type="submit" class="btn btn-success px-4">Register Me</button>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <button type="button" class="btn btn-link px-4" style="color:#242333;">Already Registered? SignIn</button>
+                                    <div class="col-6 text-right">
+                                        <a href="@Url.Action("SignIn","Customer")">
+                                            <button type="button" class="btn btn-link px-4" style="color:#242333;">SignIn?</button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </form>

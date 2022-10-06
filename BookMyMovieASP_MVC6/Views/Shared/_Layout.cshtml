@@ -28,18 +28,15 @@
                     else if (!@ViewBag.customerEmail.Equals(""))
                     {
                         <li class="header-links">
-                            Hi, @ViewBag.adminName;
+                            Hi, @ViewBag.customerName
                             <a asp-controller="Admin" asp-action="AddMovie">Saved Cards</a>
-                            <a asp-controller="Admin" asp-action="AddMovie">Movie</a>
-                            <a asp-controller="Admin" asp-action="AddMovie">Logout</a>
+                            <a asp-controller="Customer" asp-action="Logout">Logout</a>
                         </li>
                     }
                     else {
                         <li class="header-links">
                             <a asp-controller="Customer" asp-action="SignIn">SignIn</a>
-                            <a asp-controller="Customer" asp-action="Register">Register</a>
                             <a asp-controller="Admin" asp-action="SignIn">Admin</a>
-
                         </li>
                     }
                 </ul>

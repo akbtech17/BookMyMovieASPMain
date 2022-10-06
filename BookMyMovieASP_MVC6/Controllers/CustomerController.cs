@@ -1,5 +1,6 @@
 ﻿using BookMyMovieASP_MVC6.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookMyMovieASP_MVC6.Controllers
 {
@@ -24,12 +25,19 @@ namespace BookMyMovieASP_MVC6.Controllers
         {
             if (customerRepository.ValidateSignIn(customer.Email, customer.Password))
             {
-                //return RedirectToAction("Movie", "List", new { area = "" });
+                CustomerStore.Email = customer.Email;
+                CustomerStore.Name = customerRepository.GetCustomerDetails(customer.Email).FirstName;
                 return RedirectToAction("List", "Movie");
             }
             return View(customer);
         }
 
+        [HttpGet]
+        public IActionResult Logout() {
+            CustomerStore.Email = "";
+            CustomerStore.Name = "";
+            return RedirectToAction("List", "Movie");
+        }
 
         public IActionResult Register() 
         {

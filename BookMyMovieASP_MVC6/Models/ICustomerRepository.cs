@@ -3,5 +3,6 @@
     public interface ICustomerRepository
     {
         bool ValidateSignIn(string Email, string Password);
+        Akbcustomer GetCustomerDetails(string Email);
     }
 }
