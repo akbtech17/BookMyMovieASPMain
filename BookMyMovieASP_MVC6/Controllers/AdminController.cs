@@ -61,7 +61,7 @@ namespace BookMyMovieASP_MVC6.Controllers
         {
             if (ModelState.IsValid) {
                 movieRepository.AddMovie(movie);
-                return RedirectToAction("List", "Movie");
+                return RedirectToAction("MovieList", "Admin");
             }
             return View(movie);
         }

@@ -15,9 +15,11 @@
                             <div class="input-group mb-3">
                                 <input type="text"  class="form-control sty1" asp-for="Email" placeholder="Email" required>
                             </div>
+                            <span asp-validation-for="Email" class="validations" style="color:red; style="margin-bottom: 0.8rem;"></span>
                             <div class="input-group mb-4 mt-2">
                                 <input type="password" class="form-control" asp-for="Password"  placeholder="Password" required>
                             </div>
+                            <span asp-validation-for="Password" class="validations" style="color:red; style="margin-bottom: 0.8rem;"></span>
                             <div class="row">
                                 <div class="col-6">
                                     <button type="submit" class="btn btn-success px-4">Login</button>
@@ -32,4 +34,8 @@
             </div>
         </div>
     </div>
-</div>     
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
