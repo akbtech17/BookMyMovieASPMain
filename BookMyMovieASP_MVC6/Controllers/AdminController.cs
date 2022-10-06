@@ -63,9 +63,15 @@ namespace BookMyMovieASP_MVC6.Controllers
             return View(movie);
         }
 
-        public IActionResult EditMovie(int movieId)
+        public IActionResult EditMovie(int id)
         {
             return View();
+        }
+
+        public IActionResult DeleteMovie(int id)
+        {
+            movieRepository.DeleteMovie(id);
+            return RedirectToAction("MovieList", "Admin");
         }
     }
 }

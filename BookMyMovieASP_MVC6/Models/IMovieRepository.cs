@@ -6,5 +6,8 @@
         Akbmovie GetMovieById(int id);
 
         void AddMovie(Akbmovie movie);
+
+        bool DeleteMovie(int id);
+        
     }
 }

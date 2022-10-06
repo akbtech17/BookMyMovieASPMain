@@ -41,7 +41,7 @@
         </div>
         <div class="amd-button-group">
             <a href="@Url.Action("EditMovie","Admin", new {id = Model.MovieId})"><button class="amd-btn">Edit</button></a>
-            <a href="@Url.Action("EditMovie","Admin", new {id = Model.MovieId})"><button class="amd-btn">Delete</button></a>
+            <a href="@Url.Action("DeleteMovie","Admin", new {id = Model.MovieId})"><button class="amd-btn">Delete</button></a>
         </div>
 
         <a href="@Url.Action("MovieList","Admin")"><button class="amd-btn-back">Back to the Movie List</button></a>
