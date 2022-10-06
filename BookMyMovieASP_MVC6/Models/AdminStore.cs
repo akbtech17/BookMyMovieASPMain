@@ -2,7 +2,7 @@
 {
     public class AdminStore
     {
-        public static string Email = "sd";
+        public static string Email = "";
         public static string Name = "";
     }
 }
