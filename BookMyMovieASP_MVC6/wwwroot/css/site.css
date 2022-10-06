@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&disk=play=swap');
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
+
 * {
     box-sizing: border-box;
 }
@@ -634,3 +635,7 @@ p.text {
         cursor: pointer;
         transform: scale(1.01);
     }
+
+.validations {
+    font-size: 1rem;
+}
