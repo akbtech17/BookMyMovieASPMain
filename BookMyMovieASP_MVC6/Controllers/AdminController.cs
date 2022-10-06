@@ -29,11 +29,18 @@ namespace BookMyMovieASP_MVC6.Controllers
             if (adminRepository.ValidateSignIn(admin.Email, admin.Password))
             {
                 AdminStore.Email = admin.Email;
-                var AdminName = adminRepository.GetAdminDetails(admin.Email).FirstName;
+                AdminStore.Name = adminRepository.GetAdminDetails(admin.Email).FirstName;
                 /*return RedirectToAction("MovieList", new { adminName = AdminName});*/
                 return RedirectToAction("MovieList");
             }
             return View(admin);
+        }
+
+        [HttpGet]
+        public IActionResult Logout() {
+            AdminStore.Email = "";
+            AdminStore.Name = "";
+            return RedirectToAction("List", "Movie");
         }
 
  

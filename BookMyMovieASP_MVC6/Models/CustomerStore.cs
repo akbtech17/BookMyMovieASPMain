@@ -1,6 +1,6 @@
 ﻿namespace BookMyMovieASP_MVC6.Models
 {
-    public class AdminStore
+    public class CustomerStore
     {
         public static string Email = "";
         public static string Name = "";

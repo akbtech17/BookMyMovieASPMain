@@ -16,11 +16,22 @@
             <a class="header-logo" asp-controller="Movie" asp-action="List">BMM 💃 Book My Movie</a>
             <nav>
                 <ul class="header-links-list">
-                    @if (!ViewBag.adminEmail.Equals(""))
+                    @if (!@ViewBag.adminEmail.Equals(""))
                     {
                         <li class="header-links">
-                            <a asp-controller="Admin" asp-action="AddMovie">Add Movie</a>
+                            Hi, @ViewBag.adminName
                             <a asp-controller="Admin" asp-action="AddMovie">Movie List</a>
+                            <a asp-controller="Admin" asp-action="AddMovie">Add Movie</a>
+                            <a asp-controller="Admin" asp-action="Logout">Logout</a>
+                        </li>
+                    }
+                    else if (!@ViewBag.customerEmail.Equals(""))
+                    {
+                        <li class="header-links">
+                            Hi, @ViewBag.adminName;
+                            <a asp-controller="Admin" asp-action="AddMovie">Saved Cards</a>
+                            <a asp-controller="Admin" asp-action="AddMovie">Movie</a>
+                            <a asp-controller="Admin" asp-action="AddMovie">Logout</a>
                         </li>
                     }
                     else {
