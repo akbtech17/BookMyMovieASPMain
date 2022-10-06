@@ -1,1 +1,49 @@
-﻿<h1 style="color:white;">Admin Sign IN</h1>
+﻿@model Akbmovie;
+
+<div class="amd-containerr">
+    <img class="amd-image" src="~/images/@Html.DisplayFor(d => d.ImageUrl)" alt="foods-image">
+    <div class="amd-content">
+        <div class="amd-title">
+            <div class="amd-movie-name">@Html.DisplayFor(d => d.MovieName)</div>
+            <span class="amd-favorite">❤@Html.DisplayFor(d => d.Ratings)%</span>
+        </div>
+        <div class="amd-product-item-footer">
+            <div class="amd-genres">
+                @Html.DisplayFor(d => d.Genres)
+            </div>
+
+        </div>
+
+        <div class="amd-movie-pricing-details">
+            <div class="amd-showtime-language">
+                <div class="amd-show-time">
+                    @Html.DisplayFor(d => d.ShowTime)
+                </div>
+                <!-- {{movieDetails.costPerSeat | currency:'INR'}} -->
+                <div class="amd-movie-price-age">
+                    <div class="language">
+                        @Html.DisplayFor(d => d.Language)
+                    </div>
+                    <div class="amd-age-rating">
+                        @Html.DisplayFor(d => d.AgeRating)
+                    </div>
+                </div>
+            </div>
+            <div class="amd-duration-movie-type">
+                <div class="amd-duration">
+                    <span>🕘</span>
+                    @Html.DisplayFor(d => d.Duration)
+                </div>
+                <div class="amd-movie-type">
+                    @Html.DisplayFor(d => d.MovieType)
+                </div>
+            </div>
+        </div>
+        <div class="amd-button-group">
+            <a href="@Url.Action("EditMovie","Admin", new {id = Model.MovieId})"><button class="amd-btn">Edit</button></a>
+            <a href="@Url.Action("EditMovie","Admin", new {id = Model.MovieId})"><button class="amd-btn">Delete</button></a>
+        </div>
+
+        <a href="@Url.Action("MovieList","Admin")"><button class="amd-btn-back">Back to the Movie List</button></a>
+    </div>
+</div>

@@ -40,9 +40,10 @@ namespace BookMyMovieASP_MVC6.Controllers
             return View(data);
         }
 
-        public IActionResult MovieDetails()
+        
+        public IActionResult MovieDetails(int id)
         {
-            var data = movieRepository.GetMovieById(1);
+            var data = movieRepository.GetMovieById(id);
             return View(data);
         }
 
@@ -62,7 +63,7 @@ namespace BookMyMovieASP_MVC6.Controllers
             return View(movie);
         }
 
-        public IActionResult EditMovie()
+        public IActionResult EditMovie(int movieId)
         {
             return View();
         }

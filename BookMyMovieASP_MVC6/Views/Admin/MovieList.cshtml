@@ -12,6 +12,7 @@
                     <th>@Html.DisplayNameFor(d => d.CostPerSeat)</th>
                     <th>@Html.DisplayNameFor(d => d.AgeRating)</th>
                     <th>@Html.DisplayNameFor(d => d.Ratings)</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -20,18 +21,22 @@
                 }
                 @foreach (var data in @Model) 
                 {
-                    <tr class="amovielist-row">
-                        <td>@i</td>
-                            @{
-                                i++;
-                            }
-                        <td>@Html.DisplayFor(d => data.MovieName)</td>
-                        <td>@Html.DisplayFor(d => data.ReleaseDate)</td>
-                        <td>@Html.DisplayFor(d => data.CostPerSeat)</td>
-                        <td>@Html.DisplayFor(d => data.AgeRating)</td>
-                        <td>@Html.DisplayFor(d => data.Ratings)</td>
-                       
-                    </tr>
+                    
+                        <tr class="amovielist-row">
+                            
+                            
+                                <td>@i</td>
+                                        @{
+                                            i++;
+                                        }
+                                <td>@Html.DisplayFor(d => data.MovieName)</td>
+                                <td>@Html.DisplayFor(d => data.ReleaseDate)</td>
+                                <td>@Html.DisplayFor(d => data.CostPerSeat)</td>
+                                <td>@Html.DisplayFor(d => data.AgeRating)</td>
+                                <td>@Html.DisplayFor(d => data.Ratings)</td>
+                                <td><a href="@Url.Action("MovieDetails","Admin", new {id = data.MovieId})">Details</a></td> 
+                        </tr>
+              
                 }
             </tbody>
         </table>
