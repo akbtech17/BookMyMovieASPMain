@@ -4,5 +4,6 @@
     {
         bool ValidateSignIn(string Email, string Password);
         Akbadmin GetAdminDetails(string Email);
+
     }
 }

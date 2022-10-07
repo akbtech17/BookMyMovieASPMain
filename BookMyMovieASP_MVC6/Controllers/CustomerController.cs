@@ -44,8 +44,20 @@ namespace BookMyMovieASP_MVC6.Controllers
             return RedirectToAction("List", "Movie");
         }
 
+        [HttpGet]
         public IActionResult Register() 
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(Akbcustomer customerDetails)
+        {
+            if (customerRepository.RegisterCustomer(customerDetails)) {
+                _notyf.Success("User Registered");
+                return RedirectToAction("SignIn", "Customer");
+            }
+            _notyf.Success("Registration Failed");
             return View();
         }
     }

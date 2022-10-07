@@ -15,5 +15,7 @@
             var data = db.Akbadmins.Where(a => a.Email.Equals(Email) && a.Password.Equals(Password)).FirstOrDefault();
             return data != null;
         }
+
+
     }
 }
