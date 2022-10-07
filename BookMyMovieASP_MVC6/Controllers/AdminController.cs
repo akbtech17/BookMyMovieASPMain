@@ -10,6 +10,8 @@ namespace BookMyMovieASP_MVC6.Controllers
 {
     public class AdminController : Controller
     {
+        public static int MovieId { get; set; }
+
         IMovieRepository movieRepository;
         IAdminRepository adminRepository;
         public AdminController(IMovieRepository _repo, IAdminRepository _repo2)
@@ -83,13 +85,17 @@ namespace BookMyMovieASP_MVC6.Controllers
         public IActionResult EditMovie(int id)
         {
             var movieDetails = movieRepository.GetMovieById(id);
+            MovieId = id;
             return View(movieDetails);
         }
 
         [HttpPost]
         public IActionResult EditMovie(Akbmovie movieDetails) {
-
-            return RedirectToAction("MovieList", "Admin");
+            movieDetails.MovieId = MovieId;
+            if (movieRepository.EditMovie(movieDetails)) {
+                return RedirectToAction("MovieList", "Admin");
+            }
+            return View();
         }
 
         public IActionResult DeleteMovie(int id)

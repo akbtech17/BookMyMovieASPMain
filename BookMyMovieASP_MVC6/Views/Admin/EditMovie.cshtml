@@ -6,7 +6,7 @@
             <div class="card-group">
                 <div class="card p-4">
                     <div class="card-body">
-                        <form class="am-form" asp-action="addmovie">
+                        <form class="am-form" asp-action="EditMovie">
                             <h1 style="text-align:center; color:#e72929;">Edit Details</h1>
 
                             <div class="input-group mb-3 am-form-row">
@@ -54,7 +54,7 @@
 
                             <div class="input-group am-form-row mb-3">
                                 <div class="form-text am-form-row-label">Image Url</div>
-                                <input type="text" name="imageUrl" class="form-control am-form-row-input sty1" placeholder="Image Url" required [(ngModel)]="movieData.imageUrl">
+                                <input type="text" name="imageUrl" class="form-control am-form-row-input sty1" placeholder="Image Url" required asp-for="ImageUrl">
                             </div>
 
                             <span asp-validation-for="ImageUrl" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
