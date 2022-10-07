@@ -4,5 +4,7 @@
     {
         bool ValidateSignIn(string Email, string Password);
         Akbcustomer GetCustomerDetails(string Email);
+
+        bool RegisterCustomer(Akbcustomer customerDetails);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 
 namespace BookMyMovieASP_MVC6.Models
 {
@@ -17,6 +18,22 @@ namespace BookMyMovieASP_MVC6.Models
                 return null;
             }
             return null;
+        }
+
+        public bool RegisterCustomer(Akbcustomer customerDetails)
+        {
+            try
+            {
+                customerDetails.CustomerId = null;
+                db.Akbcustomers.Add(customerDetails);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
 
         public bool ValidateSignIn(string Email, string Password)
