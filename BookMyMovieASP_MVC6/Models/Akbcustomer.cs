@@ -6,7 +6,7 @@ namespace BookMyMovieASP_MVC6.Models
 {
     public partial class Akbcustomer
     {
-        public int CustomerId { get; set; }
+        public int? CustomerId { get; set; }
 
         [Required(ErrorMessage = "Email is required")]
         [DataType(DataType.EmailAddress)]

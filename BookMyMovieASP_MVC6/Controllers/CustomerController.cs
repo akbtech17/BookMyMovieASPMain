@@ -1,6 +1,5 @@
 ﻿using BookMyMovieASP_MVC6.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
 
 namespace BookMyMovieASP_MVC6.Controllers
 {

@@ -8,6 +8,8 @@
         void AddMovie(Akbmovie movie);
 
         bool DeleteMovie(int id);
+
+        bool EditMovie(Akbmovie movieDetails);
         
     }
 }
