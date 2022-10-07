@@ -25,8 +25,6 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult SignIn()
         {
-            //Akbadmin akbadmin = new Akbadmin(); 
-            //return View(akbadmin);
             return View();
         }
 
@@ -70,10 +68,12 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult AddMovie()
         {
-            /*if (AdminStore.Email.Length == 0) {
-                return RedirectToAction("List", "Movie");
-            }*/
-            
+            if (AdminStore.Email.Length == 0)
+            {
+                _notyf.Error("Unauthorized Access Detected");
+                return RedirectToAction("SignIn", "Admin");
+            }
+
             return View();
         }
 
@@ -92,6 +92,11 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult EditMovie(int id)
         {
+            if (AdminStore.Email.Length == 0)
+            {
+                _notyf.Error("Unauthorized Access Detected");
+                return RedirectToAction("SignIn", "Admin");
+            }
             var movieDetails = movieRepository.GetMovieById(id);
             MovieId = id;
             return View(movieDetails);
@@ -110,6 +115,11 @@ namespace BookMyMovieASP_MVC6.Controllers
 
         public IActionResult DeleteMovie(int id)
         {
+            if (AdminStore.Email.Length == 0)
+            {
+                _notyf.Error("Unauthorized Access Detected");
+                return RedirectToAction("SignIn", "Admin");
+            }
             movieRepository.DeleteMovie(id);
             _notyf.Success("Movie Deleted Successfuly");
             return RedirectToAction("MovieList", "Admin");
