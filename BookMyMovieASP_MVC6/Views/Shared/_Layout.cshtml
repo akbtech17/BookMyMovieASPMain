@@ -10,19 +10,7 @@
     <link media="screen" rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
-    <script type="text/javascript">
-
-        function success(msg) {
-
-            toastr.option = {
-                "debug": false,
-                "positionClass": "toast-top-center",
-                "Onclick": null
-            }
-            toastr.success(msg, "Success");
-            return false;
-        }
-    </script>
+    
     <style>
         .header-logo:hover {
             color:white;
@@ -67,5 +55,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("Notyf")
+   
 </body>
 </html>
