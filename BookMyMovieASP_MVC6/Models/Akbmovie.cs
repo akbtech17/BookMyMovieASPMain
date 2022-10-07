@@ -8,69 +8,51 @@ namespace BookMyMovieASP_MVC6.Models
     {
         public int? MovieId { get; set; }
 
-        /*[Required(ErrorMessage = "Movie Name is required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Movie Name")]
-        [MinLength(8)]
-        [MaxLength(20)]*/
+        [Required(ErrorMessage = "Movie Name is required")]
+        [RegularExpression(@"^.{3,}$", ErrorMessage = "Minimum 3 characters required")]
+        [MaxLength(50)]
         public string MovieName { get; set; } = null!;
 
-        /*[Required(ErrorMessage = "Release Date is required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Release Date")]*/
+        [Required(ErrorMessage = "Release Date is required")]
         public DateTime? ReleaseDate { get; set; }
 
-        /*[Required(ErrorMessage = "Ratings are required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Ratings")]*/
+        [Required(ErrorMessage = "Ratings are required")]
         public int? Ratings { get; set; }
 
-        /*[Required(ErrorMessage = "Genre is required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Genre")]*/
+        [Required(ErrorMessage = "Genre is required")]
+        [RegularExpression(@"^.{3,}$", ErrorMessage = "Minimum 3 characters required")]
+        [MaxLength(200)]
         public string? Genres { get; set; }
 
-       /* [Required(ErrorMessage = "Image Url is required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Image Url")]*/
+        [Required(ErrorMessage = "Image Url is required")]
+        [RegularExpression(@"^.{10,}$", ErrorMessage = "Minimum 10 characters required")]
+        [MaxLength(50)]
         public string? ImageUrl { get; set; }
 
-        /*[Required(ErrorMessage = "Cost is required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Cost")]*/
+        [Required(ErrorMessage = "Cost is required")]
         public int? CostPerSeat { get; set; }
 
-        /*[Required(ErrorMessage = "Show Time is required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Show Time")]*/
+        [Required(ErrorMessage = "Show Time is required")]
         public DateTime? ShowTime { get; set; }
 
-        /*[Required(ErrorMessage = "Duration is required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Duration")]
-        [MinLength(2)]
-        [MaxLength(20)]*/
+        [Required(ErrorMessage = "Duration is required")]
+        [RegularExpression(@"^.{3,}$", ErrorMessage = "Minimum 3 characters required")]
+        [MaxLength(10)]
         public string? Duration { get; set; }
 
-        /*[Required(ErrorMessage = "Age Rating is required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Age Rating")]
-        [MinLength(1)]
-        [MaxLength(4)]*/
+        [Required(ErrorMessage = "Age Rating is required")]
+        [RegularExpression(@"^.{1,}$", ErrorMessage = "Minimum 1 character required")]
+        [MaxLength(4)]
         public string? AgeRating { get; set; }
 
-        /*[Required(ErrorMessage = "Language is required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Language")]
-        [MinLength(4)]
-        [MaxLength(20)]*/
+        [Required(ErrorMessage = "Language is required")]
+        [RegularExpression(@"^.{3,}$", ErrorMessage = "Minimum 3 characters required")]
+        [MaxLength(10)]
         public string? Language { get; set; }
 
-        /*[Required(ErrorMessage = "Theatre Type is required")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Invalid Theatre Type")]
-        [MinLength(2)]
-        [MaxLength(20)]*/
+        [Required(ErrorMessage = "Theatre Type is required")]
+        [RegularExpression(@"^.{2,}$", ErrorMessage = "Minimum 2 characters required")]
+        [MaxLength(10)]
         public string? MovieType { get; set; }
     }
 }

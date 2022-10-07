@@ -65,9 +65,10 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult AddMovie()
         {
-            if (AdminStore.Email.Length == 0) {
+            /*if (AdminStore.Email.Length == 0) {
                 return RedirectToAction("List", "Movie");
-            }
+            }*/
+            
             return View();
         }
 
