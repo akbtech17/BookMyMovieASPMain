@@ -29,9 +29,10 @@ namespace BookMyMovieASP_MVC6.Controllers
             {
                 CustomerStore.Email = customer.Email;
                 CustomerStore.Name = customerRepository.GetCustomerDetails(customer.Email).FirstName;
-                _notyf.Success("Success Notification");
+                _notyf.Success("Login Success");
                 return RedirectToAction("List", "Movie");
             }
+            _notyf.Error("Login Failed");
             return View(customer);
         }
 
@@ -39,6 +40,7 @@ namespace BookMyMovieASP_MVC6.Controllers
         public IActionResult Logout() {
             CustomerStore.Email = "";
             CustomerStore.Name = "";
+            _notyf.Success("Logged Out");
             return RedirectToAction("List", "Movie");
         }
 

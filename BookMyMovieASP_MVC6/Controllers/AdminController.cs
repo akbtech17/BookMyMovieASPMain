@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
-
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace BookMyMovieASP_MVC6.Controllers
 {
@@ -14,10 +14,12 @@ namespace BookMyMovieASP_MVC6.Controllers
 
         IMovieRepository movieRepository;
         IAdminRepository adminRepository;
-        public AdminController(IMovieRepository _repo, IAdminRepository _repo2)
+        INotyfService _notyf;
+        public AdminController(IMovieRepository _repo, IAdminRepository _repo2, INotyfService notyf)
         {
             this.movieRepository = _repo;
             adminRepository = _repo2;
+            _notyf = notyf;
         }
 
         [HttpGet]
@@ -35,8 +37,10 @@ namespace BookMyMovieASP_MVC6.Controllers
             {
                 AdminStore.Email = admin.Email;
                 AdminStore.Name = adminRepository.GetAdminDetails(admin.Email).FirstName;
+                _notyf.Success("Login Success");
                 return RedirectToAction("MovieList");
             }
+            _notyf.Error("Login Failed");
             return View(admin);
         }
 
@@ -44,6 +48,7 @@ namespace BookMyMovieASP_MVC6.Controllers
         public IActionResult Logout() {
             AdminStore.Email = "";
             AdminStore.Name = "";
+            _notyf.Success("Logged Out");
             return RedirectToAction("List", "Movie");
         }
 
@@ -77,8 +82,10 @@ namespace BookMyMovieASP_MVC6.Controllers
         {
             if (ModelState.IsValid) {
                 movieRepository.AddMovie(movie);
+                _notyf.Success("Movie Added Successfuly");
                 return RedirectToAction("MovieList", "Admin");
             }
+            _notyf.Error("Operation Failed");
             return View(movie);
         }
 
@@ -94,14 +101,17 @@ namespace BookMyMovieASP_MVC6.Controllers
         public IActionResult EditMovie(Akbmovie movieDetails) {
             movieDetails.MovieId = MovieId;
             if (movieRepository.EditMovie(movieDetails)) {
+                _notyf.Success("Movie Updated Successfuly");
                 return RedirectToAction("MovieList", "Admin");
             }
+            _notyf.Error("Operation Failed");
             return View();
         }
 
         public IActionResult DeleteMovie(int id)
         {
             movieRepository.DeleteMovie(id);
+            _notyf.Success("Movie Deleted Successfuly");
             return RedirectToAction("MovieList", "Admin");
         }
     }
