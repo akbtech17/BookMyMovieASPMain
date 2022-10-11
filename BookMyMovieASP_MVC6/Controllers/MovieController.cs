@@ -21,11 +21,11 @@ namespace BookMyMovieASP_MVC6.Controllers
         }
         public IActionResult Details(int id)
         {
-            if (CustomerStore.Email.Length == 0)
+            /*if (CustomerStore.Email.Length == 0)
             {
                 _notyf.Error("Unauthorized Access Detected");
                 return RedirectToAction("SignIn", "Customer");
-            }
+            }*/
             var data = repo.GetMovieById(id);
             return View(data);
         }
