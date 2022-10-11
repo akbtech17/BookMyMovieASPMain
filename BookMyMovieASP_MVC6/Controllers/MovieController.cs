@@ -35,5 +35,10 @@ namespace BookMyMovieASP_MVC6.Controllers
             List<AkbseatMap> seatMap = repo.GetSeatMap(1);
             return View(seatMap);
         }
+
+        [HttpGet]
+        public IActionResult BookingConfirmation() {
+            return View();
+        }
     }
 }
