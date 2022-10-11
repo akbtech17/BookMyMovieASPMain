@@ -29,9 +29,11 @@ namespace BookMyMovieASP_MVC6.Controllers
             var data = repo.GetMovieById(id);
             return View(data);
         }
+        [HttpGet]
         public IActionResult SeatBook() 
         {
-            return View();
+            List<AkbseatMap> seatMap = repo.GetSeatMap(1);
+            return View(seatMap);
         }
     }
 }

@@ -10,6 +10,8 @@
         bool DeleteMovie(int id);
 
         bool EditMovie(Akbmovie movieDetails);
+
+        List<AkbseatMap> GetSeatMap(int movieId);
         
     }
 }

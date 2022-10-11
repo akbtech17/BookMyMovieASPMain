@@ -67,5 +67,11 @@ namespace BookMyMovieASP_MVC6.Models
             var data = db.Akbmovies.ToList();
             return data;
         }
-    }
+
+        public List<AkbseatMap> GetSeatMap(int movieId)
+		{
+			List<AkbseatMap> seatMap = db.AkbseatMaps.Where(seat => seat.MovieId == movieId).ToList();
+			return seatMap;
+		}
+	}
 }
