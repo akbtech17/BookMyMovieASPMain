@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Akbmovie>
 
+
+
 <div class="container" style="margin-top: 2rem; background-color: white;">
     <div class="jumbotron" style="padding: 1.5rem 2rem">
         <h1 style="text-align:center; color:#e72929;">Movie List</h1>
@@ -30,7 +32,7 @@
                                             i++;
                                         }
                                 <td>@Html.DisplayFor(d => data.MovieName)</td>
-                                <td>@Html.DisplayFor(d => data.ReleaseDate)</td>
+                                <td id="dobField">@Html.DisplayFor(d => data.ReleaseDate)</td>
                                 <td class="center-align">₹@Html.DisplayFor(d => data.CostPerSeat).00</td>
                                 <td class="center-align">@Html.DisplayFor(d => data.AgeRating)</td>
                                 <td class="center-align">@Html.DisplayFor(d => data.Ratings)%</td>
@@ -63,3 +65,20 @@
         text-align: center;
     }
 </style>
+
+<script>
+    function FormatDate(dateTime) {
+        const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const date = dateTime.substring(0, 10);
+        const userEnteredDateArray = date.split('-');
+        let yearValue = userEnteredDateArray[2];
+        let monthValue = userEnteredDateArray[1];
+        let dateValue = userEnteredDateArray[0];
+        return dateValue + ' ' + months[parseInt(monthValue)] + ' ' + yearValue;
+    }
+
+    var dobFields = document.querySelectorAll("#dobField");
+    for (let i = 0; i < dobFields.length; i++) {
+        dobFields[i].innerText = FormatDate(dobFields[i].innerText);
+    }
+</script>
