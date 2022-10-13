@@ -5,7 +5,7 @@ namespace BookMyMovieASP_MVC6.Models
 {
     public partial class AkbseatMap
     {
-        public int? SeatId { get; set; }
+        public int SeatId { get; set; }
         public int? MovieId { get; set; }
         public string SeatNo { get; set; } = null!;
         public int? Status { get; set; }

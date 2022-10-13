@@ -37,11 +37,11 @@ namespace BookMyMovieASP_MVC6.Models
             modelBuilder.Entity<Akbadmin>(entity =>
             {
                 entity.HasKey(e => e.AdminId)
-                    .HasName("PK__AKBAdmin__719FE488A754C3E8");
+                    .HasName("PK__AKBAdmin__719FE4885AE9837C");
 
                 entity.ToTable("AKBAdmin");
 
-                entity.HasIndex(e => e.Email, "UQ__AKBAdmin__A9D1053474FAA8B7")
+                entity.HasIndex(e => e.Email, "UQ__AKBAdmin__A9D10534315C029A")
                     .IsUnique();
 
                 entity.Property(e => e.Email)
@@ -60,11 +60,11 @@ namespace BookMyMovieASP_MVC6.Models
             modelBuilder.Entity<Akbcustomer>(entity =>
             {
                 entity.HasKey(e => e.CustomerId)
-                    .HasName("PK__AKBCusto__A4AE64D809D546D5");
+                    .HasName("PK__AKBCusto__A4AE64D85E773DFA");
 
                 entity.ToTable("AKBCustomer");
 
-                entity.HasIndex(e => e.Email, "UQ__AKBCusto__A9D1053418429199")
+                entity.HasIndex(e => e.Email, "UQ__AKBCusto__A9D105348C2E2D6B")
                     .IsUnique();
 
                 entity.Property(e => e.Email)
@@ -72,6 +72,10 @@ namespace BookMyMovieASP_MVC6.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.FirstName)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Gender)
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -83,7 +87,7 @@ namespace BookMyMovieASP_MVC6.Models
             modelBuilder.Entity<Akbmovie>(entity =>
             {
                 entity.HasKey(e => e.MovieId)
-                    .HasName("PK__AKBMovie__4BD2941A0528BE02");
+                    .HasName("PK__AKBMovie__4BD2941AB44EE14F");
 
                 entity.ToTable("AKBMovie");
 
@@ -105,6 +109,8 @@ namespace BookMyMovieASP_MVC6.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.IsAdult).HasDefaultValueSql("((0))");
+
                 entity.Property(e => e.Language)
                     .HasMaxLength(10)
                     .IsUnicode(false);
@@ -125,7 +131,7 @@ namespace BookMyMovieASP_MVC6.Models
             modelBuilder.Entity<AkbseatMap>(entity =>
             {
                 entity.HasKey(e => e.SeatId)
-                    .HasName("PK__AKBSeatM__311713F3FE6BCC6D");
+                    .HasName("PK__AKBSeatM__311713F32882ECAC");
 
                 entity.ToTable("AKBSeatMap");
 
@@ -138,27 +144,29 @@ namespace BookMyMovieASP_MVC6.Models
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.AkbseatMaps)
                     .HasForeignKey(d => d.MovieId)
-                    .HasConstraintName("FK__AKBSeatMa__Movie__60BE0156");
+                    .HasConstraintName("FK__AKBSeatMa__Movie__50A7951E");
             });
 
             modelBuilder.Entity<AkbtransactionDetail>(entity =>
             {
                 entity.HasKey(e => e.TransactionId)
-                    .HasName("PK__AKBTrans__55433A6BB6CE1D3F");
+                    .HasName("PK__AKBTrans__55433A6B236016BC");
 
                 entity.ToTable("AKBTransactionDetails");
+
+                entity.Property(e => e.TransactionId).ValueGeneratedNever();
 
                 entity.Property(e => e.TransactionTime).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.AkbtransactionDetails)
                     .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK__AKBTransa__Custo__648E923A");
+                    .HasConstraintName("FK__AKBTransa__Custo__54782602");
 
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.AkbtransactionDetails)
                     .HasForeignKey(d => d.MovieId)
-                    .HasConstraintName("FK__AKBTransa__Movie__6582B673");
+                    .HasConstraintName("FK__AKBTransa__Movie__556C4A3B");
             });
 
             modelBuilder.Entity<AkbtransactionSeat>(entity =>
@@ -176,7 +184,7 @@ namespace BookMyMovieASP_MVC6.Models
                     .WithMany(p => p.AkbtransactionSeats)
                     .HasForeignKey(d => d.TransactionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__AKBTransa__Trans__685F231E");
+                    .HasConstraintName("FK__AKBTransa__Trans__5848B6E6");
             });
 
             OnModelCreatingPartial(modelBuilder);
