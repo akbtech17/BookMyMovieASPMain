@@ -92,11 +92,11 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult EditMovie(int id)
         {
-            if (AdminStore.Email.Length == 0)
+            /*if (AdminStore.Email.Length == 0)
             {
                 _notyf.Error("Unauthorized Access Detected");
                 return RedirectToAction("SignIn", "Admin");
-            }
+            }*/
             var movieDetails = movieRepository.GetMovieById(id);
             MovieId = id;
             return View(movieDetails);

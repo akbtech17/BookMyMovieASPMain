@@ -6,7 +6,7 @@
             <div class="card-group">
                 <div class="card p-4">
                     <div class="card-body">
-                        <form class="am-form" asp-action="EditMovie" method="post">
+                        <form class="em-form" asp-action="EditMovie" method="post">
                             <h1 style="text-align:center; color:#e72929;">Edit Movie</h1>
 
                             <div class="input-group mb-3 em-form-row">
@@ -101,15 +101,25 @@
                             </div>
                             <span asp-validation-for="Language" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
 
-                            <div class="input-group em-form-row mb-3">
-                                <div class="form-text em-form-row-label">Theatre Type</div>
-                                <input type="text"
-                                       class="form-control em-form-row-input sty1"
-                                       placeholder="eg, 4D MAX"
-                                       asp-for="MovieType">
-                            </div>
                             <span asp-validation-for="MovieType" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
-
+                            <div class="input-group em-form-row-select mb-3">
+                                <div class="form-text em-form-row-label-select">Theatre Type</div>
+                                <select type="text"
+                                        class="form-control em-form-row-input sty1"
+                                        asp-for="MovieType">
+                                    <option selected="true" disabled="true">Choose Theatre Type</option>
+                                    <option value="2D">2D</option>
+                                    <option value="3D">3D</option>
+                                    <option value="4D MAX">4D MAX</option>
+                                    <option value="IMAX">IMAX</option>
+                                </select>
+                            </div>
+                            <div class="input-group em-form-row mb-4 mt-2">
+                                <div class="form-text em-form-row-label">Above 18</div>
+                                <input class="em-checkbox"
+                                       type="checkbox"
+                                       asp-for="IsAdult" />
+                            </div>
                             <div class="row">
                                 <div class="col-6">
                                     <button type="submit" class="btn btn-success px-4">Save Changes</button>
@@ -136,11 +146,12 @@
     }
 
     .em-form-row-label {
-        flex: 0.3;
+        flex: 0.42
     }
 
+
     .em-form-row-input {
-        flex: 0.7;
+        /*flex: 0.7;*/
     }
 
     .em-form-row-select {
@@ -154,5 +165,8 @@
     .em-checkbox {
         height: 30px;
         width: 30px;
+    }
+    .em-checkbox:hover {
+        cursor:pointer;
     }
 </style>
