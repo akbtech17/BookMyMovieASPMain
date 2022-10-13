@@ -25,7 +25,8 @@ namespace BookMyMovieASP_MVC6.Models
             try
             {
                 customerDetails.CustomerId = null;
-                db.Akbcustomers.Add(customerDetails);
+				customerDetails.Password = EncodePasswordToBase64(customerDetails.Password);
+				db.Akbcustomers.Add(customerDetails);
                 db.SaveChanges();
                 return true;
             }

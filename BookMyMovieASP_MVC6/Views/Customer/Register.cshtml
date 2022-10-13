@@ -28,6 +28,18 @@
                                 <input type="password" class="form-control" asp-for="Password" placeholder="Password" required>
                             </div>
                             <span asp-validation-for="Password" class="validations" style="color:red; style="margin-bottom: 0.8rem;"></span>
+                            
+                            <div class="register-gender-div">
+                                <div class="register-gender-label">
+                                    <h5>Gender</h5>
+                                </div>
+                                <div class="register-gender-options">
+                                    <input name="gender" ng-control="options" type="radio" value="Male" asp-for="Gender">Male<br />
+                                    <input name="gender" ng-control="options" type="radio" value="Female" asp-for="Gender">Female<br />
+                                    <input name="gender" ng-control="options" type="radio" value="Other" asp-for="Gender">Other<br />
+                                </div>
+                            </div>
+                            
                             <div class="row">
                                 <div class="col-6">
                                     <button type="submit" class="btn btn-success px-4">Register Me</button>
@@ -49,3 +61,25 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+<style>
+    .register-gender-div {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 1.5rem;
+    }
+
+    .register-gender-label {
+        margin-right: 2rem;
+    }
+
+    .register-gender-options > input {
+        margin: 6px;
+    }
+
+        .register-gender-options > input:hover {
+            cursor: pointer;
+        }
+
+</style>
