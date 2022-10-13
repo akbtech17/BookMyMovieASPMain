@@ -22,62 +22,7 @@ body {
     text-decoration: none;
 }
 
-/*header css*/
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-}
 
-.main-header {
-    background-color: whitesmoke;
-    padding: 0;
-    border-bottom: 1px solid #e72929;
-}
-
-.header-containerr {
-    margin-right: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.header-logo {
-    font-weight: bold;
-    padding: 1em;
-    background-color: #af1313;
-    color: white;
-    border-radius: 0 2rem 0 0;
-    text-decoration: none;
-}
-
-.header-links-list {
-    list-style-type: none;
-    margin: 0;
-}
-
-.header-links a {
-    color: #af1313;
-    padding: 1em;
-    display: inline-block;
-    list-style-type: none;
-}
-
-    .header-links a:hover {
-        background-color: #e72929;
-        color: white;
-        text-decoration: none;
-        opacity: 0.9;
-        transition: 0.3s;
-        cursor: pointer;
-    }
-
-.header-logo:hover {
-    text-decoration: none;
-    opacity: 0.9;
-    transition: 0.3s;
-    cursor: pointer;
-}
 /*movie list css*/
 .ml-image {
     height: 23rem;
