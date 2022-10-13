@@ -115,11 +115,6 @@ namespace BookMyMovieASP_MVC6.Controllers
 
         public IActionResult DeleteMovie(int id)
         {
-            if (AdminStore.Email.Length == 0)
-            {
-                _notyf.Error("Unauthorized Access Detected");
-                return RedirectToAction("SignIn", "Admin");
-            }
             movieRepository.DeleteMovie(id);
             _notyf.Success("Movie Deleted Successfuly");
             return RedirectToAction("MovieList", "Admin");
