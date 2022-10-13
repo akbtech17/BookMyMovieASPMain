@@ -6,12 +6,12 @@
         <table class="table">
             <thead class="head">
                 <tr>
-                    <th>Sno</th>
+                    <th class="center-align">Sno</th>
                     <th>@Html.DisplayNameFor(d => d.MovieName)</th>
                     <th>@Html.DisplayNameFor(d => d.ReleaseDate)</th>
-                    <th>@Html.DisplayNameFor(d => d.CostPerSeat)</th>
-                    <th>@Html.DisplayNameFor(d => d.AgeRating)</th>
-                    <th>@Html.DisplayNameFor(d => d.Ratings)</th>
+                    <th class ="center-align">@Html.DisplayNameFor(d => d.CostPerSeat)</th>
+                    <th class="center-align">@Html.DisplayNameFor(d => d.AgeRating)</th>
+                    <th class="center-align">@Html.DisplayNameFor(d => d.Ratings)</th>
                     <th></th>
                 </tr>
             </thead>
@@ -23,17 +23,17 @@
                 {
                     
                         <tr class="amovielist-row">
-                            
-                            
-                                <td>@i</td>
+
+
+                                <td class ="center-align">@i</td>
                                         @{
                                             i++;
                                         }
                                 <td>@Html.DisplayFor(d => data.MovieName)</td>
                                 <td>@Html.DisplayFor(d => data.ReleaseDate)</td>
-                                <td>@Html.DisplayFor(d => data.CostPerSeat)</td>
-                                <td>@Html.DisplayFor(d => data.AgeRating)</td>
-                                <td>@Html.DisplayFor(d => data.Ratings)</td>
+                                <td class="center-align">₹@Html.DisplayFor(d => data.CostPerSeat).00</td>
+                                <td class="center-align">@Html.DisplayFor(d => data.AgeRating)</td>
+                                <td class="center-align">@Html.DisplayFor(d => data.Ratings)%</td>
                                 <td><a href="@Url.Action("MovieDetails","Admin", new {id = data.MovieId})">Details</a></td> 
                         </tr>
               
@@ -42,3 +42,24 @@
         </table>
     </div>
 </div>
+
+<style>
+    /*Movie List*/
+    
+
+    .amovielist-row:hover {
+        cursor: pointer;
+        background-color: #e72929;
+        color: white;
+        font-weight: 100;
+        text-decoration: none;
+        opacity: 0.9;
+        transition: 0.3s;
+        transform: scale(1.01);
+    }
+
+
+    .center-align {
+        text-align: center;
+    }
+</style>
