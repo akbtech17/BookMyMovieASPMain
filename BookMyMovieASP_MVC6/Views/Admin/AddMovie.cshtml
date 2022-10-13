@@ -118,7 +118,7 @@
                             </div>
                             <span asp-validation-for="Language" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
                             
-                            <div class="input-group am-form-row mb-3">
+                            @*<div class="input-group am-form-row mb-3">
                                 <div class="form-text am-form-row-label">Theatre Type</div>
                                 <input type="text"
                       
@@ -127,8 +127,27 @@
                                        asp-for="MovieType"
                                 >
                             </div>
-                            <span asp-validation-for="MovieType" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
+                            <span asp-validation-for="MovieType" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>*@
 
+                            <div class="input-group am-form-row-select mb-3">
+                                <div class="form-text am-form-row-label-select">Theatre Type</div>
+                                <select type="text"
+                                        class="form-control am-form-row-input sty1"
+
+                                        asp-for="MovieType">
+                                    <option selected="true" disabled="true">Choose Theatre Type</option>
+                                    <option value="2D">2D</option>
+                                    <option value="3D">3D</option>
+                                    <option value="4D MAX">4D MAX</option>
+                                    <option value="IMAX">IMAX</option>
+                                </select>
+                            </div>
+                            <div class="input-group am-form-row mb-4 mt-2">
+                                <div class="form-text am-form-row-label">Above 18</div>
+                                <input class="am-checkbox"
+                                       type="checkbox"
+                                       asp-for="IsAdult" />
+                            </div>
                             <div class="row">
                                 <div class="col-6">
                                     <button type="submit" class="btn btn-success px-4">Add Movie</button>

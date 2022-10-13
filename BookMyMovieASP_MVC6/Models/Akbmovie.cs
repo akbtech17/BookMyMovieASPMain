@@ -23,7 +23,7 @@ namespace BookMyMovieASP_MVC6.Models
         public string? AgeRating { get; set; }
         public string? Language { get; set; }
         public string? MovieType { get; set; }
-        public bool? IsAdult { get; set; }
+        public bool IsAdult { get; set; }
 
         public virtual ICollection<AkbseatMap> AkbseatMaps { get; set; }
         public virtual ICollection<AkbtransactionDetail> AkbtransactionDetails { get; set; }
