@@ -23,26 +23,8 @@ body {
 }
 
 
-
-
-
-
-/*Admin */
-
-
-
 /*Add Movie*/
-.am-form-row {
-    display: flex;
-}
 
-.am-form-row-label {
-    flex: 0.4;
-}
-
-.am-form-row-input {
-    flex: 0.7;
-}
 
 /*Admin Movie Deatils*/
 .amd-containerr {
