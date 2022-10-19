@@ -1,7 +1,8 @@
-﻿@model IEnumerable<AkbseatMap>
+﻿@model SeatmapWithSeatInput;
 
 <app-header></app-header>
-<div class="seat-book">
+<form method="post" asp-action="SeatBook" class="seat-book">
+    
     <div class="sb-movie-container">
     </div>
     <ul class="sb-showcase">
@@ -112,11 +113,33 @@
             <div class="sb-seat sold"></div>
             <div class="sb-seat sold"></div>
         </div>
-        <button class="btn btn-success" onclick="location.href='@Url.Action("BookingConfirmation","Movie")'" style="margin-top: 2rem;">Book Now</button>
+        <div class="input-group mb-3 sb-form-row">
+            <div class="form-text sb-form-row-label">Seat No</div>
+            <input type="text"
+                   class="form-control sty1 sb-form-row-input"
+                   placeholder="eg, A1, B2"
+                   asp-for="@Model.selectedSeats"
+                   required>
+        </div>
+        @*<button class="btn btn-success" type="submit" onclick="location.href='@Url.Action("BookingConfirmation","Movie")'" style="margin-top: 2rem;">Book Now</button>*@
+        <button class="btn btn-success" type="submit" style="margin-top: 2rem;">Book Now</button>
     </div>
-</div>
+</form>
 
 <style>
+    .sb-form-row {
+        margin-top:1rem;
+        display: flex;
+    }
+
+    .sb-form-row-label {
+        flex: 0.35;
+        font: 8px;
+    }
+
+    .sb-form-row-input {
+        flex: 0.65;
+    }
 * {
   box-sizing: border-box;
 }

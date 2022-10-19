@@ -47,11 +47,20 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult SeatBook() 
         {
-            List<AkbseatMap> seatMap = repo.GetSeatMap(1);
-            return View(seatMap);
+            SeatmapWithSeatInput viewDetails = new SeatmapWithSeatInput();
+            viewDetails.seats = repo.GetSeatMap(1);
+            viewDetails.selectedSeats = "";
+            return View(viewDetails);
         }
 
-        [HttpGet]
+		[HttpPost]
+		public IActionResult SeatBook(SeatmapWithSeatInput request)
+		{
+			string[] selectedSeats = request.selectedSeats.Split(", ");
+			return View();
+		}
+
+		[HttpGet]
         public IActionResult BookingConfirmation() {
             return View();
         }
