@@ -1,13 +1,13 @@
-﻿@model IEnumerable<Akbmovie>
+﻿@model MovieListWithSearch
 
-<form class="ml-filter-comp" method="post" asp-action="">
-    <input type="text" placeholder="Search Movie from BMM">
+<form class="ml-filter-comp" method="post" asp-action="List">
+    <input type="text" placeholder="Search Movie from BMM" asp-for="@Model.filterString">
     <button type="submit">Search</button>
 </form>
 
 
 <ul class="ml-ul">
-        @foreach (var data in @Model)
+        @foreach (var data in @Model.movies)
         {
             <li>
                 <a href="@Url.Action("Details","Movie", new {id = data.MovieId})">
