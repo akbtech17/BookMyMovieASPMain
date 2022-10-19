@@ -32,7 +32,11 @@
                                             i++;
                                         }
                                 <td>@Html.DisplayFor(d => data.MovieName)</td>
-                                <td id="dobField">@Html.DisplayFor(d => data.ReleaseDate)</td>
+                                <td>
+                                        @Html.TextBoxFor(d => data.ShowTime, "{0: MMM dd, yyyy}", new {
+                                        style="outline: none; border: none; background: transparent;", Class="amovielist-row"
+                                    })
+                                </td>
                                 <td class="center-align">₹@Html.DisplayFor(d => data.CostPerSeat).00</td>
                                 <td class="center-align">@Html.DisplayFor(d => data.AgeRating)</td>
                                 <td class="center-align">@Html.DisplayFor(d => data.Ratings)%</td>
@@ -50,6 +54,17 @@
     
 
     .amovielist-row:hover {
+        cursor: pointer;
+        background-color: #e72929;
+        color: white;
+        font-weight: 100;
+        text-decoration: none;
+        opacity: 0.9;
+        transition: 0.3s;
+        transform: scale(1.01);
+    }
+
+    .OnHover:hover {
         cursor: pointer;
         background-color: #e72929;
         color: white;

@@ -27,7 +27,10 @@
                         </div>
                     </div>
                     <div class="ml-show-time">
-                        @Html.DisplayFor(d => data.ShowTime)
+                        @Html.TextBoxFor(d => data.ShowTime, "{0: MMM dd, yyyy}", new {
+                            style="outline: none; border: none; background: transparent; padding-right:0;"
+                        })
+
                     </div>
                     <div class="ml-movie-pricing-details">
                         <!-- {{movie.costPerSeat | currency:'INR'}} -->
