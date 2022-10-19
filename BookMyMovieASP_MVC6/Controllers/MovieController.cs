@@ -8,11 +8,13 @@ namespace BookMyMovieASP_MVC6.Controllers
     {
         IMovieRepository repo;
         INotyfService _notyf;
-        public MovieController(IMovieRepository _repo, ICustomerRepository _repo2, INotyfService notyf)
+        ITransactionRepository _transRepo;
+        public MovieController(IMovieRepository _repo, ICustomerRepository _repo2, INotyfService notyf, ITransactionRepository repo3)
         {
             this.repo = _repo;
             _notyf = notyf;
-        }
+            _transRepo = repo3;
+		}
 
 		public IActionResult List()
 		{
@@ -42,6 +44,7 @@ namespace BookMyMovieASP_MVC6.Controllers
                 return RedirectToAction("SignIn", "Customer");
             }*/
             Akbmovie data = repo.GetMovieById(id);
+            TransactionRequest.MovieId = id;
             return View(data);
         }
         [HttpGet]
@@ -56,13 +59,29 @@ namespace BookMyMovieASP_MVC6.Controllers
 		[HttpPost]
 		public IActionResult SeatBook(SeatmapWithSeatInput request)
 		{
-			string[] selectedSeats = request.selectedSeats.Split(", ");
-			return View();
+            TransactionRequest.TransactionTime = DateTime.Now;
+			TransactionRequest.Seats = request.selectedSeats.Split(", ");
+            TransactionRequest obj = new TransactionRequest();
+
+            if (obj != null) {
+				TransactionResponse response =  _transRepo.CreateTransaction(obj);
+                if (response != null)
+                {
+					ViewBag.response = response;
+					return RedirectToAction("BookingConfirmation", "Movie");
+				}
+                else {
+					_notyf.Error("Transaction Failed");
+					return View();
+				}
+               
+			}
+            return View();
 		}
 
 		[HttpGet]
-        public IActionResult BookingConfirmation() {
-            return View();
+        public IActionResult BookingConfirmation(TransactionResponse response) {
+            return View(ViewBag.response);
         }
     }
 }

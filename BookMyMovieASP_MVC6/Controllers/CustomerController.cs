@@ -29,6 +29,8 @@ namespace BookMyMovieASP_MVC6.Controllers
             {
                 CustomerStore.Email = customer.Email;
                 CustomerStore.Name = customerRepository.GetCustomerDetails(customer.Email).FirstName;
+                int? cId = customerRepository.GetCustomerDetails(customer.Email).CustomerId;
+				if(cId != null) TransactionRequest.CustomerId = cId;
                 _notyf.Success("Login Success");
                 return RedirectToAction("List", "Movie");
             }

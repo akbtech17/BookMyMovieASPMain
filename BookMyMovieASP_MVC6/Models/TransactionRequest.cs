@@ -2,10 +2,10 @@
 {
 	public class TransactionRequest
 	{
-		public int TransactionId { get; set; }
-		public int MovieId { get; set; }
-		public int CustomerId { get; set; }
-		public DateTime TransactionTime { get; set; }
-		public string[] Seats { get; set; }
+		public static int? TransactionId { get; set; }
+		public static int? MovieId { get; set; }
+		public static int? CustomerId { get; set; }
+		public static DateTime? TransactionTime { get; set; }
+		public static string[]? Seats { get; set; }
 	}
 }

@@ -1,4 +1,6 @@
-﻿<div class="cp-container container" *ngIf="transactionSuccess">
+﻿@model TransactionResponse;
+
+<div class="cp-container container" *ngIf="transactionSuccess">
     <div class="cp-logo">book <span>my</span> movie</div>
     <div class="cp-confirm">Your booking is confirmed!</div>
     <div class="cp-bookingid">
@@ -11,18 +13,18 @@
                 <img src="~/images/image1.jpg" alt="" class="cp-movie-image">
             </div>
             <div class="cp-movie-info">
-                <div class="cp-movie-title">Chup (UA)</div>
+                <div class="cp-movie-title">@Html.DisplayFor(d => d.MovieName) (@Html.DisplayFor(d => d.AgeRating))</div>
                 <div class="cp-movie-venue">
                     <!-- <div class="cp-time">11:30pm | Sun, 22 May, 2022</div> -->
-                    <div class="cp-time">11:30pm | Sun, 22 May, 2022</div>
+                    <div class="cp-time">@Html.DisplayFor(d => d.ShowTime)</div>
                     <div class="cp-address">Cinepolis: WESTEND Mall Aundh, Pune(AUDI 03) Pune, Pune</div>
                 </div>
-                <div class="cp-seat">EXECUTIVE - A1, A2, A3</div>
+                <div class="cp-seat">EXECUTIVE - > @Html.DisplayFor(d => d.Seats)</div>
             </div>
         </div>
         <div class="cp-seat-details">
             <div class="cp-number-of-seats">
-                <div class="cp-nseat">3</div>
+                <div class="cp-nseat">{@Model.Seats.Length}</div>
                 <div class="cp-ticket-label">Tickets</div>
             </div>
             <div class="cp-audi-details">AUDI 03</div>
@@ -33,16 +35,16 @@
         <div class="cp-transaction-details">
             <div class="cp-amount-details">
                 <div class="cp-amount-label">TICKET AMOUNT</div>
-                <div class="cp-amount">Rs.450</div>
+                <div class="cp-amount">Rs.{@Model.CostPerSeat}*{@Model.Seats.Length}</div>
             </div>
             <div class="cp-quantity-details">
                 <div class="cp-quantity-label">Quantity</div>
-                <div class="cp-quantity">3 tickets</div>
+                <div class="cp-quantity">{@Model.Seats.Length} tickets</div>
             </div>
             <div class="cp-paid-details">
                 <div class="cp-inner">
                     <div class="cp-paid-label">AMOUNT PAID</div>
-                    <div class="cp-paid-money">Rs.450</div>
+                    <div class="cp-paid-money">Rs.{@Model.CostPerSeat}*{@Model.Seats.Length}</div>
                 </div>
             </div>
         </div>

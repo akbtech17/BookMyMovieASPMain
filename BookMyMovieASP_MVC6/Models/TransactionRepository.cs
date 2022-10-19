@@ -16,18 +16,20 @@ namespace BookMyMovieASP_MVC6.Models
 			cloudQueue.AddMessageAsync(queueMessage);
 		}
 
-		public TransactionResponse CreateTransaction(TransactionRequest transactionRequest)
+		public TransactionResponse CreateTransaction(TransactionRequest TransactionRequest)
 		{
 			Guid guid = Guid.NewGuid();
 			Random random = new Random();
 			int tId = random.Next();
 
+			DateTime dt = DateTime.Now; 
+
 			// 1. post transaction details to transaction table
 			AkbtransactionDetail transactionDetails = new AkbtransactionDetail();
 			transactionDetails.TransactionId = tId;
-			transactionDetails.MovieId = transactionRequest.MovieId;
-			transactionDetails.CustomerId = transactionRequest.CustomerId;
-			transactionDetails.TransactionTime = transactionRequest.TransactionTime;
+			transactionDetails.MovieId = TransactionRequest.MovieId;
+			transactionDetails.CustomerId = TransactionRequest.CustomerId;
+			transactionDetails.TransactionTime = dt;
 			db.AkbtransactionDetails.Add(transactionDetails);
 			db.SaveChanges();
 
@@ -36,10 +38,10 @@ namespace BookMyMovieASP_MVC6.Models
 
 			if (transactionId != null)
 			{
-				foreach (string seat in transactionRequest.Seats)
+				foreach (string seat in TransactionRequest.Seats)
 				{
 					db.AkbtransactionSeats.Add(new AkbtransactionSeat { TransactionId = transactionId, SeatNo = seat });
-					AkbseatMap akbseatMap = db.AkbseatMaps.Where(sm => sm.MovieId == transactionRequest.MovieId && sm.SeatNo.Equals(seat)).FirstOrDefault();
+					AkbseatMap akbseatMap = db.AkbseatMaps.Where(sm => sm.MovieId == TransactionRequest.MovieId && sm.SeatNo.Equals(seat)).FirstOrDefault();
 					akbseatMap.Status = 2;
 					db.SaveChanges();
 				}
@@ -47,19 +49,19 @@ namespace BookMyMovieASP_MVC6.Models
 
 
 			// post to azure
-			Akbcustomer customer = db.Akbcustomers.Where(c => c.CustomerId == transactionRequest.CustomerId).FirstOrDefault();
-			Akbmovie movie = db.Akbmovies.Where(m => m.MovieId == transactionRequest.MovieId).FirstOrDefault();
+			Akbcustomer customer = db.Akbcustomers.Where(c => c.CustomerId == TransactionRequest.CustomerId).FirstOrDefault();
+			Akbmovie movie = db.Akbmovies.Where(m => m.MovieId == TransactionRequest.MovieId).FirstOrDefault();
 			string seatsBooked = "";
-			for (int i = 0; i < transactionRequest.Seats.Length; i++)
+			for (int i = 0; i < TransactionRequest.Seats.Length; i++)
 			{
-				seatsBooked += transactionRequest.Seats[i];
-				if (i + 1 < transactionRequest.Seats.Length) seatsBooked += ", ";
+				seatsBooked += TransactionRequest.Seats[i];
+				if (i + 1 < TransactionRequest.Seats.Length) seatsBooked += ", ";
 			}
 			string message = $"Name : {customer.FirstName}\n" +
 				$"Email : {customer.Email}\n" +
 				$"Seat No : {seatsBooked}\n" +
-				$"No of Seats : {transactionRequest.Seats.Length}\n" +
-				$"Total Cost : {transactionRequest.Seats.Length * movie.CostPerSeat}\n" +
+				$"No of Seats : {TransactionRequest.Seats.Length}\n" +
+				$"Total Cost : {TransactionRequest.Seats.Length * movie.CostPerSeat}\n" +
 				$"Movie Name : {movie.MovieName}\n" +
 				$"Show Time : {movie.ShowTime}";
 			AddMessageToQueue(message);
