@@ -11,7 +11,7 @@ namespace BookMyMovieASP_MVC6.Models
         {
             try
             {
-                var customer = db.Akbcustomers.Where(c => c.Email.ToLower().Equals(Email.ToLower())).FirstOrDefault();
+                Akbcustomer? customer = db.Akbcustomers.Where(c => c.Email.ToLower().Equals(Email.ToLower())).FirstOrDefault();
                 return customer;
             }
             catch (Exception Ex) {
@@ -41,7 +41,7 @@ namespace BookMyMovieASP_MVC6.Models
         {
 
 			string encodedPassword = EncodePasswordToBase64(Password);
-			Akbcustomer customerData = db.Akbcustomers
+			Akbcustomer? customerData = db.Akbcustomers
 				.Where(c => c.Email.ToLower().Equals(Email) && c.Password.Equals(encodedPassword))
 				.FirstOrDefault();
 

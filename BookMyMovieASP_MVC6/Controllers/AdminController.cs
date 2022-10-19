@@ -54,14 +54,14 @@ namespace BookMyMovieASP_MVC6.Controllers
         public IActionResult MovieList()
         {
             /*ViewBag.adminName = adminName;*/
-            var data = movieRepository.GetMovies();
+            List<Akbmovie> data = movieRepository.GetMovies();
             return View(data);
         }
 
         
         public IActionResult MovieDetails(int id)
         {
-            var data = movieRepository.GetMovieById(id);
+            Akbmovie data = movieRepository.GetMovieById(id);
             return View(data);
         }
 

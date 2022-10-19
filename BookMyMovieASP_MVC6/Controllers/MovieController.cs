@@ -41,7 +41,7 @@ namespace BookMyMovieASP_MVC6.Controllers
                 _notyf.Error("Unauthorized Access Detected");
                 return RedirectToAction("SignIn", "Customer");
             }*/
-            var data = repo.GetMovieById(id);
+            Akbmovie data = repo.GetMovieById(id);
             return View(data);
         }
         [HttpGet]

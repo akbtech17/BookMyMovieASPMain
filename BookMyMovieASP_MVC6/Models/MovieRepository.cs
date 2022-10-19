@@ -17,7 +17,7 @@ namespace BookMyMovieASP_MVC6.Models
         {
             try
             {
-                var movie = db.Akbmovies.Where(m => m.MovieId == id).FirstOrDefault();
+                Akbmovie? movie = db.Akbmovies.Where(m => m.MovieId == id).FirstOrDefault();
                 db.Akbmovies.Remove(movie);
                 db.SaveChanges();
             }
@@ -32,7 +32,7 @@ namespace BookMyMovieASP_MVC6.Models
         {
             try
             {
-                var old_data = db.Akbmovies.Where(m => m.MovieId == new_data.MovieId).FirstOrDefault();
+                Akbmovie old_data = db.Akbmovies.Where(m => m.MovieId == new_data.MovieId).FirstOrDefault();
                 if (old_data != null)
                 {
                     old_data.MovieName = new_data.MovieName;
@@ -58,13 +58,13 @@ namespace BookMyMovieASP_MVC6.Models
 
         public Akbmovie GetMovieById(int id)
         {
-            var data = db.Akbmovies.Where(movie => movie.MovieId == id).FirstOrDefault();
+            Akbmovie data = db.Akbmovies.Where(movie => movie.MovieId == id).FirstOrDefault();
             return data;
         }
 
         public List<Akbmovie> GetMovies()
         {
-            var data = db.Akbmovies.ToList();
+            List<Akbmovie> data = db.Akbmovies.ToList();
             return data;
         }
 
