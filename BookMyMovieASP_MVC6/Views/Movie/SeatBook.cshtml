@@ -21,8 +21,13 @@
     </ul>
     <div class="sb-containerr">
         <div class="sb-screen"></div>
-
         <div class="sb-row">
+            @foreach (AkbseatMap seat in @Model.seats) {
+                <div class="sb-seat"></div>
+                <br />
+            } 
+        </div>
+        @*<div class="sb-row">
             <div class="sb-seat"></div>
             <div class="sb-seat"></div>
             <div class="sb-seat"></div>
@@ -112,7 +117,7 @@
             <div class="sb-seat sold"></div>
             <div class="sb-seat sold"></div>
             <div class="sb-seat sold"></div>
-        </div>
+        </div>*@
         <div class="input-group mb-3 sb-form-row">
             <div class="form-text sb-form-row-label">Seat No</div>
             <input type="text"
@@ -130,6 +135,7 @@
     .sb-form-row {
         margin-top:1rem;
         display: flex;
+        width: 625px;
     }
 
     .sb-form-row-label {
@@ -199,13 +205,13 @@
   background-color: #fff;
 }
 
-.sb-seat:nth-of-type(2) {
+/*.sb-seat:nth-of-type(2) {
   margin-right: 18px;
 }
 
 .sb-seat:nth-last-of-type(2) {
   margin-left: 18px;
-}
+}*/
 
 .sb-seat:not(.sold):hover {
   cursor: pointer;
@@ -240,6 +246,8 @@
 
 .sb-row {
   display: flex;
+  flex-wrap: wrap;
+  width: 625px;
 }
 
 .sb-screen {
