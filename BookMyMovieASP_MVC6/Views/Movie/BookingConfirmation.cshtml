@@ -5,9 +5,19 @@
     <div class="cp-confirm">Your booking is confirmed!</div>
     <div class="cp-bookingid">
         <span>Booking ID </span>
-        <span class="cp-bid">WMSZBWP</span>
+        <span class="cp-bid">#@Html.DisplayFor(d => d.TransactionId)</span>
     </div>
     <div class="cp-ticket-container">
+        @{
+            int noOfSeats = Model.Seats.Length;
+            int? costPerSeat = Model.CostPerSeat;
+            int? totalCost = noOfSeats * costPerSeat;
+            string seatsBooked = "";
+            for (int i = 0; i < Model.Seats.Length; i++) {
+                seatsBooked += Model.Seats[i];
+                if (i < noOfSeats - 1) seatsBooked += ", ";
+            }
+        }
         <div class="cp-movie">
             <div class="cp-movie-image">
                 <img src="~/images/image1.jpg" alt="" class="cp-movie-image">
@@ -15,16 +25,19 @@
             <div class="cp-movie-info">
                 <div class="cp-movie-title">@Html.DisplayFor(d => d.MovieName) (@Html.DisplayFor(d => d.AgeRating))</div>
                 <div class="cp-movie-venue">
-                    <!-- <div class="cp-time">11:30pm | Sun, 22 May, 2022</div> -->
-                    <div class="cp-time">@Html.DisplayFor(d => d.ShowTime)</div>
+                    <div class="cp-time">
+                        @Html.TextBoxFor(d => d.ShowTime, "{0: MMM dd, yyyy}", new {
+                        style="outline: none; border: none; background: transparent; padding-right:0;"
+                        })
+                    </div>
                     <div class="cp-address">Cinepolis: WESTEND Mall Aundh, Pune(AUDI 03) Pune, Pune</div>
                 </div>
-                <div class="cp-seat">EXECUTIVE - > @Html.DisplayFor(d => d.Seats)</div>
+                <div class="cp-seat">EXECUTIVE - @seatsBooked</div>
             </div>
         </div>
         <div class="cp-seat-details">
             <div class="cp-number-of-seats">
-                <div class="cp-nseat">3</div>
+                <div class="cp-nseat">@noOfSeats</div>
                 <div class="cp-ticket-label">Tickets</div>
             </div>
             <div class="cp-audi-details">AUDI 03</div>
@@ -35,16 +48,16 @@
         <div class="cp-transaction-details">
             <div class="cp-amount-details">
                 <div class="cp-amount-label">TICKET AMOUNT</div>
-                <div class="cp-amount">Rs.450</div>
+                <div class="cp-amount">Rs.@totalCost</div>
             </div>
             <div class="cp-quantity-details">
                 <div class="cp-quantity-label">Quantity</div>
-                <div class="cp-quantity">3 tickets</div>
+                <div class="cp-quantity">@noOfSeats tickets</div>
             </div>
             <div class="cp-paid-details">
                 <div class="cp-inner">
                     <div class="cp-paid-label">AMOUNT PAID</div>
-                    <div class="cp-paid-money">Rs.450</div>
+                    <div class="cp-paid-money">Rs.@totalCost</div>
                 </div>
             </div>
         </div>

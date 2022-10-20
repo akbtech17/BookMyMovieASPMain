@@ -20,6 +20,7 @@ namespace BookMyMovieASP_MVC6.Models
 		public string MovieName { get; set; } = null!;
 
 		[Required(ErrorMessage = "Release Date is required")]
+		[DisplayFormat(DataFormatString = "{0: MMM dd, yyyy}")]
 		public DateTime? ReleaseDate { get; set; }
 
 		[Required(ErrorMessage = "Ratings are required")]
@@ -39,6 +40,7 @@ namespace BookMyMovieASP_MVC6.Models
         public int? CostPerSeat { get; set; }
 
 		[Required(ErrorMessage = "Show Time is required")]
+		[DisplayFormat(DataFormatString = "{0: MMM dd, yyyy}")]
 		public DateTime? ShowTime { get; set; }
 
 		[Required(ErrorMessage = "Duration is required")]
