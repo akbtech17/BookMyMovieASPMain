@@ -12,6 +12,7 @@ namespace BookMyMovieASP_MVC6.Controllers
     {
         public static int MovieId { get; set; }
 
+        GuardsController guards;
         IMovieRepository movieRepository;
         IAdminRepository adminRepository;
         INotyfService _notyf;
@@ -20,6 +21,7 @@ namespace BookMyMovieASP_MVC6.Controllers
             this.movieRepository = _repo;
             adminRepository = _repo2;
             _notyf = notyf;
+            guards = new GuardsController();    
         }
 
         [HttpGet]
@@ -53,34 +55,48 @@ namespace BookMyMovieASP_MVC6.Controllers
  
         public IActionResult MovieList()
         {
-            /*ViewBag.adminName = adminName;*/
-            List<Akbmovie> data = movieRepository.GetMovies();
+			if (guards.IsAdminLoggedIn())
+			{
+				_notyf.Error("Unauthorized Access Detected");
+				return RedirectToAction("SignIn", "Admin");
+			}
+			List<Akbmovie> data = movieRepository.GetMovies();
             return View(data);
         }
 
         
         public IActionResult MovieDetails(int id)
         {
-            Akbmovie data = movieRepository.GetMovieById(id);
+			if (guards.IsAdminLoggedIn())
+			{
+				_notyf.Error("Unauthorized Access Detected");
+				return RedirectToAction("SignIn", "Admin");
+			}
+			Akbmovie data = movieRepository.GetMovieById(id);
             return View(data);
         }
 
         [HttpGet]
         public IActionResult AddMovie()
         {
-            /*if (AdminStore.Email.Length == 0)
-            {
-                _notyf.Error("Unauthorized Access Detected");
-                return RedirectToAction("SignIn", "Admin");
-            }*/
+			if (guards.IsAdminLoggedIn())
+			{
+				_notyf.Error("Unauthorized Access Detected");
+				return RedirectToAction("SignIn", "Admin");
+			}
 
-            return View();
+			return View();
         }
 
         [HttpPost]
         public IActionResult AddMovie(Akbmovie movie)
         {
-            if (ModelState.IsValid) {
+			if (guards.IsAdminLoggedIn())
+			{
+				_notyf.Error("Unauthorized Access Detected");
+				return RedirectToAction("SignIn", "Admin");
+			}
+			if (ModelState.IsValid) {
                 movieRepository.AddMovie(movie);
                 _notyf.Success("Movie Added Successfuly");
                 return RedirectToAction("MovieList", "Admin");
@@ -92,12 +108,12 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult EditMovie(int id)
         {
-            /*if (AdminStore.Email.Length == 0)
-            {
-                _notyf.Error("Unauthorized Access Detected");
-                return RedirectToAction("SignIn", "Admin");
-            }*/
-            var movieDetails = movieRepository.GetMovieById(id);
+			if (guards.IsAdminLoggedIn())
+			{
+				_notyf.Error("Unauthorized Access Detected");
+				return RedirectToAction("SignIn", "Admin");
+			}
+			var movieDetails = movieRepository.GetMovieById(id);
             MovieId = id;
             return View(movieDetails);
         }
@@ -115,7 +131,12 @@ namespace BookMyMovieASP_MVC6.Controllers
 
         public IActionResult DeleteMovie(int id)
         {
-            movieRepository.DeleteMovie(id);
+			if (guards.IsAdminLoggedIn())
+			{
+				_notyf.Error("Unauthorized Access Detected");
+				return RedirectToAction("SignIn", "Admin");
+			}
+			movieRepository.DeleteMovie(id);
             _notyf.Success("Movie Deleted Successfuly");
             return RedirectToAction("MovieList", "Admin");
         }

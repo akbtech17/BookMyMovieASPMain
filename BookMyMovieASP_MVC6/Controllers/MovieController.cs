@@ -9,11 +9,13 @@ namespace BookMyMovieASP_MVC6.Controllers
         IMovieRepository repo;
         INotyfService _notyf;
         ITransactionRepository _transRepo;
+        GuardsController guards;
         public MovieController(IMovieRepository _repo, ICustomerRepository _repo2, INotyfService notyf, ITransactionRepository repo3)
         {
             this.repo = _repo;
             _notyf = notyf;
             _transRepo = repo3;
+            guards = new GuardsController();
 		}
 
 		public IActionResult List()
@@ -38,11 +40,11 @@ namespace BookMyMovieASP_MVC6.Controllers
 
 		public IActionResult Details(int id)
         {
-            /*if (CustomerStore.Email.Length == 0)
+            if (guards.IsCustomerLoggedIn())
             {
                 _notyf.Error("Unauthorized Access Detected");
                 return RedirectToAction("SignIn", "Customer");
-            }*/
+            }
             Akbmovie data = repo.GetMovieById(id);
             TransactionRequest.MovieId = id;
             return View(data);
@@ -50,7 +52,12 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult SeatBook(int movieId) 
         {
-            SeatmapWithSeatInput viewDetails = new SeatmapWithSeatInput();
+			if (guards.IsCustomerLoggedIn())
+			{
+				_notyf.Error("Unauthorized Access Detected");
+				return RedirectToAction("SignIn", "Customer");
+			}
+			SeatmapWithSeatInput viewDetails = new SeatmapWithSeatInput();
             viewDetails.seats = repo.GetSeatMap(movieId);
             viewDetails.selectedSeats = "";
             return View(viewDetails);
@@ -81,7 +88,12 @@ namespace BookMyMovieASP_MVC6.Controllers
 
 		[HttpGet]
         public IActionResult BookingConfirmation(TransactionResponse response2) {
-            //TransactionResponse response2 = ViewBag.response;
+			if (guards.IsCustomerLoggedIn())
+			{
+				_notyf.Error("Unauthorized Access Detected");
+				return RedirectToAction("SignIn", "Customer");
+			}
+			//TransactionResponse response2 = ViewBag.response;
 			return View(response2);
         }
     }
