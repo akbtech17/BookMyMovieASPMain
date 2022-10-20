@@ -13,8 +13,7 @@ namespace BookMyMovieASP_MVC6.Models
 		public string Email { get; set; } = null!;
 
 		[Required(ErrorMessage = "Password is required")]
-		[DataType(DataType.EmailAddress)]
-		[EmailAddress(ErrorMessage = "Invalid password")]
+		[DataType(DataType.Password)]
 		[MinLength(8)]
 		[MaxLength(20)]
 		public string Password { get; set; } = null!;

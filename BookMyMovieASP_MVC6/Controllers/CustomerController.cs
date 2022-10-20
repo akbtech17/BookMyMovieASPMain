@@ -53,9 +53,15 @@ namespace BookMyMovieASP_MVC6.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(Akbcustomer customerDetails)
+        public IActionResult Register(RegisterViewModel details)
         {
-            if (customerRepository.RegisterCustomer(customerDetails)) {
+            Akbcustomer customerDetails = new Akbcustomer();
+            customerDetails.FirstName = details.FirstName;
+            customerDetails.Gender = details.Gender;
+            customerDetails.Password = details.Password;
+            customerDetails.Email = details.Email;
+
+			if (customerRepository.RegisterCustomer(customerDetails)) {
                 _notyf.Success("User Registered");
                 return RedirectToAction("SignIn", "Customer");
             }

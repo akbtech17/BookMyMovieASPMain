@@ -1,4 +1,4 @@
-﻿@model Akbcustomer;
+﻿@model RegisterViewModel;
 
 <br />
 <br />
@@ -24,10 +24,16 @@
                                 <input type="text" class="form-control sty1" asp-for="Email" placeholder="Email" required>
                             </div>
                             <span asp-validation-for="Email" class="validations" style="color:red; style="margin-bottom: 0.8rem;"></span>
+                            
                             <div class="input-group mb-4 mt-2">
                                 <input type="password" class="form-control" asp-for="Password" placeholder="Password" required>
                             </div>
                             <span asp-validation-for="Password" class="validations" style="color:red; style="margin-bottom: 0.8rem;"></span>
+
+                            <div class="input-group mb-4 mt-2">
+                                <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="Confirm Password" required>
+                            </div>
+                            <span asp-validation-for="ConfirmPassword" class="validations" style="color:red; style="margin-bottom: 0.8rem;"></span>
                             
                             <div class="register-gender-div">
                                 <div class="register-gender-label">
