@@ -9,12 +9,22 @@
 <ul class="ml-ul">
         @foreach (var data in @Model.movies)
         {
-            <li>
+       
+        <li>
                 <a href="@Url.Action("Details","Movie", new {id = data.MovieId})">
                 <img class="ml-image" src="~/images/@Html.DisplayFor(d => data.ImageUrl)" alt="foods-image">
                 <div class="ml-content">
                     <div class="ml-title">
-                        <div class="ml-movie-name">@Html.DisplayFor(d => data.MovieName)</div>
+                        <div class="ml-movie-name">
+                            @{
+                                string movieName = data.MovieName;
+                                if (movieName.Length > 22) {
+                                    movieName = movieName.Substring(0, 22);
+                                    movieName += "...";
+                                }
+                            }
+                            @movieName
+                        </div>
                         <span class="ml-favorite">❤@Html.DisplayFor(d => data.Ratings)%</span>
                     </div>
                     <div class="ml-product-item-footer">
