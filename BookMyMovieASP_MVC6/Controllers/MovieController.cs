@@ -40,7 +40,7 @@ namespace BookMyMovieASP_MVC6.Controllers
 
 		public IActionResult Details(int id)
         {
-			if (guards.IsCustomerLoggedIn() || guards.IsAdminLoggedIn())
+			if (guards.IsCustomerLoggedIn())
 			{
 				_notyf.Error("Unauthorized Access Detected");
 				return RedirectToAction("SignIn", "Customer");
@@ -49,14 +49,10 @@ namespace BookMyMovieASP_MVC6.Controllers
             TransactionRequest.MovieId = id;
             return View(data);
         }
+
         [HttpGet]
         public IActionResult SeatBook(int movieId) 
         {
-			if (guards.IsCustomerLoggedIn() || guards.IsAdminLoggedIn())
-			{
-				_notyf.Error("Unauthorized Access Detected");
-				return RedirectToAction("SignIn", "Customer");
-			}
 			SeatmapWithSeatInput viewDetails = new SeatmapWithSeatInput();
             viewDetails.seats = repo.GetSeatMap(movieId);
             viewDetails.selectedSeats = "";
@@ -88,11 +84,11 @@ namespace BookMyMovieASP_MVC6.Controllers
 
 		[HttpGet]
         public IActionResult BookingConfirmation(TransactionResponse response2) {
-			if (guards.IsCustomerLoggedIn() || guards.IsAdminLoggedIn())
+			/*if (guards.IsCustomerLoggedIn() || guards.IsAdminLoggedIn())
 			{
 				_notyf.Error("Unauthorized Access Detected");
 				return RedirectToAction("SignIn", "Customer");
-			}
+			}*/
 			_notyf.Success("Booking Confirmed!");
 			//TransactionResponse response2 = ViewBag.response;
 			return View(response2);
