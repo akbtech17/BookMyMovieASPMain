@@ -1,4 +1,6 @@
-﻿namespace BookMyMovieASP_MVC6.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BookMyMovieASP_MVC6.Models
 {
 	public class TransactionResponse
 	{
@@ -20,6 +22,8 @@
 		public string Genres { get; set; }
 		public string ImageUrl { get; set; }
 		public int? CostPerSeat { get; set; }
+
+		[DisplayFormat(DataFormatString = "{0: MMM dd, yyyy hh:mm tt}")]
 		public DateTime? ShowTime { get; set; }
 		public string Duration { get; set; }
 		public string AgeRating { get; set; }

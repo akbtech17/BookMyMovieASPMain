@@ -32,11 +32,7 @@
                                             i++;
                                         }
                                 <td>@Html.DisplayFor(d => data.MovieName)</td>
-                                <td>
-                                        @Html.TextBoxFor(d => data.ShowTime, "{0: MMM dd, yyyy}", new {
-                                        style="outline: none; border: none; background: transparent;", Class="amovielist-row"
-                                    })
-                                </td>
+                                <td>@Html.DisplayFor(d => data.ShowTime)</td>
                                 <td class="center-align">₹@Html.DisplayFor(d => data.CostPerSeat).00</td>
                                 <td class="center-align">@Html.DisplayFor(d => data.AgeRating)</td>
                                 <td class="center-align">@Html.DisplayFor(d => data.Ratings)%</td>

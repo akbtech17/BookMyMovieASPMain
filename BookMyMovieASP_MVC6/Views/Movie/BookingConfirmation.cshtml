@@ -20,15 +20,13 @@
         }
         <div class="cp-movie">
             <div class="cp-movie-image">
-                <img src="~/images/image1.jpg" alt="" class="cp-movie-image">
+                <img src="~/images/@Html.DisplayFor(d => d.ImageUrl)" alt="" class="cp-movie-image">
             </div>
             <div class="cp-movie-info">
                 <div class="cp-movie-title">@Html.DisplayFor(d => d.MovieName) (@Html.DisplayFor(d => d.AgeRating))</div>
                 <div class="cp-movie-venue">
                     <div class="cp-time">
-                        @Html.TextBoxFor(d => d.ShowTime, "{0: MMM dd, yyyy}", new {
-                        style="outline: none; border: none; background: transparent; padding-right:0;"
-                        })
+                        @Html.DisplayFor(d => d.ShowTime)
                     </div>
                     <div class="cp-address">Cinepolis: WESTEND Mall Aundh, Pune(AUDI 03) Pune, Pune</div>
                 </div>

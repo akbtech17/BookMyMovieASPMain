@@ -17,9 +17,7 @@
         <div class="md-movie-pricing-details">
             <div class="md-showtime-language">
                 <div class="md-show-time">
-                    @Html.TextBoxFor(d => d.ShowTime, "{0: MMM dd, yyyy}", new {
-                    style="outline: none; border: none; background: transparent; color: whitesmoke;font-size: 1.5rem;"
-                    })
+                    @Html.DisplayFor(d => d.ShowTime)
                 </div>
                 <!-- {{movieDetails.costPerSeat | currency:'INR'}} -->
                 <div class="md-movie-price-age">
