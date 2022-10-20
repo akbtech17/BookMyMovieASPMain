@@ -42,7 +42,7 @@
             </div>
         </div>
         @*<button  onclick="Route">Book Now</button>*@
-        <button type="button" class="md-btn" onclick="location.href='@Url.Action("SeatBook","Movie")'">Book Now</button>
+        <button type="button" class="md-btn" onclick="location.href='@Url.Action("SeatBook","Movie", new {movieId = Model.MovieId})'">Book Now</button>
     </div>
 </div>
 

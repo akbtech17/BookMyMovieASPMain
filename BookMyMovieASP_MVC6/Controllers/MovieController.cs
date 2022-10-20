@@ -48,10 +48,10 @@ namespace BookMyMovieASP_MVC6.Controllers
             return View(data);
         }
         [HttpGet]
-        public IActionResult SeatBook() 
+        public IActionResult SeatBook(int movieId) 
         {
             SeatmapWithSeatInput viewDetails = new SeatmapWithSeatInput();
-            viewDetails.seats = repo.GetSeatMap(1);
+            viewDetails.seats = repo.GetSeatMap(movieId);
             viewDetails.selectedSeats = "";
             return View(viewDetails);
         }
@@ -68,7 +68,7 @@ namespace BookMyMovieASP_MVC6.Controllers
                 if (response != null)
                 {
 					ViewBag.response = response;
-					return RedirectToAction("BookingConfirmation", "Movie");
+					return RedirectToAction("BookingConfirmation", "Movie", response);
 				}
                 else {
 					_notyf.Error("Transaction Failed");
@@ -80,8 +80,9 @@ namespace BookMyMovieASP_MVC6.Controllers
 		}
 
 		[HttpGet]
-        public IActionResult BookingConfirmation(TransactionResponse response) {
-            return View(ViewBag.response);
+        public IActionResult BookingConfirmation(TransactionResponse response2) {
+            //TransactionResponse response2 = ViewBag.response;
+			return View(response2);
         }
     }
 }
