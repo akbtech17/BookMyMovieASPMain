@@ -23,101 +23,10 @@
         <div class="sb-screen"></div>
         <div class="sb-row">
             @foreach (AkbseatMap seat in @Model.seats) {
-                <div class="sb-seat"></div>
+                <div class="sb-seat @(seat.Status == 0 ? "" : seat.Status == 1 ? "selected" : "sold")"></div>
                 <br />
             } 
         </div>
-        @*<div class="sb-row">
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-        </div>
-
-        <div class="sb-row">
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-        </div>
-        <div class="sb-row">
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat sold"></div>
-        </div>
-        <div class="sb-row">
-            <div class="sb-seat"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-        </div>
-        <div class="sb-row">
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat sold"></div>
-            <div class="sb-seat sold"></div>
-        </div>*@
         <div class="input-group mb-3 sb-form-row">
             <div class="form-text sb-form-row-label">Seat No</div>
             <input type="text"
