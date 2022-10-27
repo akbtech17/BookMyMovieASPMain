@@ -149,8 +149,7 @@
                     {
                         <li class="header-links">
                             Hi, @ViewBag.adminName
-                            <a asp-controller="Admin" asp-action="MovieList">Movie List</a>
-                            <a asp-controller="Admin" asp-action="AddMovie">Add Movie</a>
+                            
                             <a asp-controller="Admin" asp-action="Logout">Logout</a>
                         </li>
                     }
@@ -158,7 +157,7 @@
                     {
                         <li class="header-links">
                             Hi, @ViewBag.customerName
-                            <a asp-controller="Admin" asp-action="AddMovie">Saved Cards</a>
+                            @*<a asp-controller="Admin" asp-action="AddMovie">Saved Cards</a>*@
                             <a asp-controller="Customer" asp-action="Logout">Logout</a>
                         </li>
                     }
@@ -180,20 +179,20 @@
                     @if (!@ViewBag.customerEmail.Equals(""))
                     {
                         <div class="sidenav">
-                            <a href="#" routerLink="">Movie List</a>
-                            <a href="#" routerLink="">Previous Bookings</a>
-                            <a href="#" routerLink="">Wallet</a>
-                            <a href="#" routerLink="">Saved Cards</a>
-                            <a href="#" routerLink="">Change Password</a>
+                            <a asp-controller="Movie" asp-action="List">Movie List</a>
+                            <a asp-controller="Movie" asp-action="List">Previous Bookings</a>
+                            <a asp-controller="Movie" asp-action="List">Wallet</a>
+                            <a asp-controller="Movie" asp-action="List">Saved Cards</a>
+                            <a asp-controller="Movie" asp-action="List">Change Password</a>
                         </div>
                     }
                     else if (!@ViewBag.adminEmail.Equals(""))
                     {
                         <div class="sidenav">
-                            <a href="#" routerLink="/admin/movielist">Movie List</a>
-                            <a href="#" routerLink="/admin/addmovie">Add Movie</a>
-                            <a href="#" routerLink="">Customer List</a>
-                            <a href="#" routerLink="">Change Password</a>
+                            <a asp-controller="Admin" asp-action="MovieList">Movie List</a>
+                            <a asp-controller="Admin" asp-action="AddMovie">Add Movie</a>
+                            <a asp-controller="Admin" asp-action="MovieList">Customer List</a>
+                            <a asp-controller="Admin" asp-action="MovieList">Change Password</a>
                         </div>
                     }
 
