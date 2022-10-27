@@ -8,6 +8,76 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link media="screen" rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
     <style>
+                .application-div{
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+            height: 100vh;
+          }
+
+          .application-content{
+            display: flex;
+            height: 88.5vh;
+          }
+
+          .sidebar {
+            flex: 0.163;
+            background-color: #00171F;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .content{
+            flex: 0.9;
+            overflow-x: hidden;
+            /* overflow-y: hidden; */
+            /* overflow-y: auto; */
+          }
+
+          .content::-webkit-scrollbar {
+            display: none;
+          }
+
+          .content {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+          }
+                  .ws-content{
+                    overflow-x: hidden;
+                  }
+
+                  .ws-content::-webkit-scrollbar {
+                    display: none;
+                  }
+
+                  .ws-content {
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    scrollbar-width: none;  /* Firefox */
+                  }
+                .sidenav {
+          padding-top: 1rem;
+        }
+        .sidenav a{
+          color: white;
+          padding: 1em;
+          display: inline-block;
+          list-style-type: none;
+          width: 100%;
+          height: auto;
+        }
+
+        .sidenav a:hover{
+          transition: 2sec;
+          background-color: white;
+          color:#00171F;
+          text-decoration: none;
+          opacity: 0.9;
+          transition: 0.3s;
+          cursor: pointer;
+          transform: scale(1.01);
+          font-weight: bolder;
+
+        }
         .header-logo:hover {
             color:white;
         }
@@ -69,7 +139,8 @@
     </style>
 </head>
 <body>
-    <header class="main-header">
+    <div class="application-div">
+        <header class="main-header">
         <div class="header-containerr">
             <a class="header-logo" asp-controller="Movie" asp-action="List">book my movie 💃 </a>
             <nav>
@@ -101,32 +172,49 @@
             </nav>
         </div>
     </header>
-    @*<!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
+    @if (!(@ViewBag.adminEmail.Equals("") && @ViewBag.customerEmail.Equals("")))
+        {
+            <div class="application-content">
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="sidebar">
+                    @if (!@ViewBag.customerEmail.Equals(""))
+                    {
+                        <div class="sidenav">
+                            <a href="#" routerLink="">Movie List</a>
+                            <a href="#" routerLink="">Previous Bookings</a>
+                            <a href="#" routerLink="">Wallet</a>
+                            <a href="#" routerLink="">Saved Cards</a>
+                            <a href="#" routerLink="">Change Password</a>
+                        </div>
+                    }
+                    else if (!@ViewBag.adminEmail.Equals(""))
+                    {
+                        <div class="sidenav">
+                            <a href="#" routerLink="/admin/movielist">Movie List</a>
+                            <a href="#" routerLink="/admin/addmovie">Add Movie</a>
+                            <a href="#" routerLink="">Customer List</a>
+                            <a href="#" routerLink="">Change Password</a>
+                        </div>
+                    }
+
                 </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+
+                <div class="content">
+                    @RenderBody()
                 </div>
             </div>
-        </div>
-    </div>*@
-    @RenderBody()
+        }
+        else {
+            <div class="ws-content">
+                @RenderBody()
+            </div>
+        }
+        
+
+    </div>
+    
+    
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
