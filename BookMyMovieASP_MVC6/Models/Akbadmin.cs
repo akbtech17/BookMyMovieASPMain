@@ -7,12 +7,12 @@ namespace BookMyMovieASP_MVC6.Models
     public partial class Akbadmin
     {
         public int AdminId { get; set; }
-		[Required(ErrorMessage = "Email is required")]
+		[Required(ErrorMessage = "* Email is required")]
 		[DataType(DataType.EmailAddress)]
-		[EmailAddress(ErrorMessage = "Invalid email address")]
+		[EmailAddress(ErrorMessage = "* Email is invalid")]
 		public string Email { get; set; } = null!;
 
-		[Required(ErrorMessage = "Password is required")]
+		[Required(ErrorMessage = "* Password is required")]
 		[DataType(DataType.Password)]
 		[MinLength(8)]
 		[MaxLength(20)]

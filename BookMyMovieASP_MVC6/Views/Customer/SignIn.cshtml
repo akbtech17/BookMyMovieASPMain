@@ -1,5 +1,11 @@
 ﻿@model Akbcustomer;
-
+<style>
+    .input-group > span {
+        font-size: 0.95rem;
+        font-weight: bolder;
+        width:100%;
+    }
+</style>
 <br />
 <br />
 <br />
@@ -13,13 +19,13 @@
                         <form method="post" asp-action="SignIn">
                             <h1 style="text-align:center; color:#e72929;">Sign In</h1>
                             <div class="input-group mb-3">
-                                <input type="text"  class="form-control sty1" asp-for="Email" placeholder="Email" required>
+                                <input type="email"  class="form-control" asp-for="Email" placeholder="Email" required>
+                                <span asp-validation-for="Email" class="form-text text-danger"></span>
                             </div>
-                            <span asp-validation-for="Email" class="validations" style="color:red; style="margin-bottom: 0.8rem;"></span>
-                            <div class="input-group mb-4 mt-2">
+                            <div class="input-group mb-3">
                                 <input type="password" class="form-control" asp-for="Password"  placeholder="Password" required>
+                                <span asp-validation-for="Password" class="form-text text-danger"></span>
                             </div>
-                            <span asp-validation-for="Password" class="validations" style="color:red; style="margin-bottom: 0.8rem;"></span>
                             <div class="row">
                                 <div class="col-6">
                                     <button type="submit" class="btn btn-success px-4">Login</button>
