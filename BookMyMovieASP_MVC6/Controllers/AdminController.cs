@@ -55,11 +55,11 @@ namespace BookMyMovieASP_MVC6.Controllers
  
         public IActionResult MovieList()
         {
-			if (guards.IsAdminLoggedIn())
+			/*if (guards.IsAdminLoggedIn())
 			{
 				_notyf.Error("Unauthorized Access Detected");
 				return RedirectToAction("SignIn", "Admin");
-			}
+			}*/
 			List<Akbmovie> data = movieRepository.GetMovies();
             return View(data);
         }
@@ -67,11 +67,11 @@ namespace BookMyMovieASP_MVC6.Controllers
         
         public IActionResult MovieDetails(int id)
         {
-			if (guards.IsAdminLoggedIn())
+			/*if (guards.IsAdminLoggedIn())
 			{
 				_notyf.Error("Unauthorized Access Detected");
 				return RedirectToAction("SignIn", "Admin");
-			}
+			}*/
 			Akbmovie data = movieRepository.GetMovieById(id);
             return View(data);
         }
@@ -79,11 +79,11 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult AddMovie()
         {
-			if (guards.IsAdminLoggedIn())
+			/*if (guards.IsAdminLoggedIn())
 			{
 				_notyf.Error("Unauthorized Access Detected");
 				return RedirectToAction("SignIn", "Admin");
-			}
+			}*/
 
 			return View();
         }
@@ -91,11 +91,11 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpPost]
         public IActionResult AddMovie(Akbmovie movie)
         {
-			if (guards.IsAdminLoggedIn())
+			/*if (guards.IsAdminLoggedIn())
 			{
 				_notyf.Error("Unauthorized Access Detected");
 				return RedirectToAction("SignIn", "Admin");
-			}
+			}*/
 			if (ModelState.IsValid) {
                 movieRepository.AddMovie(movie);
                 _notyf.Success("Movie Added Successfuly");
@@ -108,11 +108,11 @@ namespace BookMyMovieASP_MVC6.Controllers
         [HttpGet]
         public IActionResult EditMovie(int id)
         {
-			if (guards.IsAdminLoggedIn())
+			/*if (guards.IsAdminLoggedIn())
 			{
 				_notyf.Error("Unauthorized Access Detected");
 				return RedirectToAction("SignIn", "Admin");
-			}
+			}*/
 			var movieDetails = movieRepository.GetMovieById(id);
             MovieId = id;
             return View(movieDetails);

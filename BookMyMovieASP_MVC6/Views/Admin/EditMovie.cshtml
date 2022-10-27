@@ -6,106 +6,136 @@
             <div class="card-group">
                 <div class="card p-4">
                     <div class="card-body">
-                        <form class="em-form" asp-action="EditMovie" method="post">
+                        <form class="am-form" asp-action="addmovie" method="post">
                             <h1 style="text-align:center; color:#e72929;">Edit Movie</h1>
-
-                            <div class="input-group mb-3 em-form-row">
-                                <div class="form-text em-form-row-label">Movie Name</div>
-                                <input type="text"
-                                       class="form-control sty1 em-form-row-input"
-                                       placeholder="eg, Brahmastra"
-                                       asp-for="MovieName"
-                                       required>
+                            <div class="input-group mb-3 am-form-row">
+                                <div class="form-text am-form-row-label">Movie Name</div>
+                               <div class="ig">
+                                    <input type="text"
+                                           class="form-control sty1 am-form-row-input"
+                                           placeholder="eg, Brahmastra"
+                                           asp-for="MovieName"
+                                           required>
+                                    <span asp-validation-for="MovieName" class="form-text text-danger"></span>  
+                               </div>
                             </div>
-                            <span asp-validation-for="MovieName" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
-
-
-                            <div class="input-group mb-4 mt-2 em-form-row">
-                                <div class="form-text em-form-row-label">Release Date</div>
-                                <input type="datetime-local"
-                                       class="form-control em-form-row-input"
-                                       placeholder=""
-                                       asp-for="ReleaseDate">
+                         
+                            <div class="input-group mb-3 am-form-row">
+                                <div class="form-text am-form-row-label">Release Date</div>
+                                <div class="ig">
+                                    <input type="date"
+                                           class="form-control am-form-row-input"
+                                           placeholder=""
+                                           asp-for="ReleaseDate">
+                                    <span asp-validation-for="ReleaseDate" class="form-text text-danger"></span>
+                                </div>
                             </div>
-                            <span asp-validation-for="ReleaseDate" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
+                            
 
-                            <div class="input-group mb-3 em-form-row">
-                                <div class="form-text em-form-row-label">Ratings (%)</div>
-                                <input type="number"
-                                       class="form-control em-form-row-input sty1"
-                                       placeholder="eg, 45"
-                                       asp-for="Ratings">
+                            <div class="input-group mb-3 am-form-row">
+                                <div class="form-text am-form-row-label">Ratings (%)</div>
+                                <div class="ig">
+                                    <input type="number"
+                                           class="form-control am-form-row-input sty1"
+                                           placeholder="eg, 45"
+                                           asp-for="Ratings">
+                                    <span asp-validation-for="Ratings" class="form-text text-danger"></span>
+                                </div>
                             </div>
-                            <span asp-validation-for="Ratings" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
+                            
 
-
-                            <div class="input-group em-form-row mb-4 mt-2">
-                                <div class="form-text em-form-row-label">Genres</div>
-                                <input type="text"
-                                       class="form-control em-form-row-input"
-                                       placeholder="eg, Action, Adventure, Fantasy"
-                                       asp-for="Genres">
+                            <div class="input-group am-form-row mb-4 mt-2">
+                                <div class="form-text am-form-row-label">Genres</div>
+                                <div class="ig">
+                                    <input type="text"
+                                           class="form-control am-form-row-input"
+                                           placeholder="eg, Action, Adventure, Fantasy"
+                                           asp-for="Genres">
+                                    <span asp-validation-for="Genres" class="form-text text-danger"></span>
+                                </div>
                             </div>
-                            <span asp-validation-for="Genres" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
+                            
+                            
 
+                            <div class="input-group am-form-row mb-3">
+                                <div class="form-text am-form-row-label">Image Url</div>
+                                <div class="ig">
+                                    <input type="text" class="form-control am-form-row-input sty1" placeholder="Image Url" required asp-for="ImageUrl">
+                                    <span asp-validation-for="ImageUrl" class="form-text text-danger"></span>
 
-                            <div class="input-group em-form-row mb-3">
-                                <div class="form-text em-form-row-label">Image Url</div>
-                                <input type="text" class="form-control em-form-row-input sty1" placeholder="Image Url" required asp-for="ImageUrl">
+                                </div>
                             </div>
 
-                            <span asp-validation-for="ImageUrl" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
 
-                            <div class="input-group em-form-row mb-4 mt-2">
-                                <div class="form-text em-form-row-label">Cost Per Seat (₹)</div>
-                                <input type="number"
-                                       class="form-control em-form-row-input"
-                                       placeholder="eg, ₹230"
-                                       asp-for="CostPerSeat">
+                            <div class="input-group am-form-row mb-4 mt-2">
+                                <div class="form-text am-form-row-label">Cost Per Seat (₹)</div>
+                                <div class="ig">
+                                    <input type="number"
+                                           class="form-control am-form-row-input"
+                                           placeholder="eg, ₹230"
+                                           asp-for="CostPerSeat">
+                                    <span asp-validation-for="CostPerSeat" class="form-text text-danger"></span>
+                                </div>
+                                
                             </div>
-                            <span asp-validation-for="CostPerSeat" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
+                           
+                            
 
-
-                            <div class="input-group em-form-row mb-3">
-                                <div class="form-text em-form-row-label">Show Time</div>
-                                <input type="datetime-local"
-                                       class="form-control em-form-row-input sty1"
-                                       asp-for="ShowTime">
+                            <div class="input-group am-form-row mb-3">
+                                <div class="form-text am-form-row-label">Show Time</div>
+                                <div class="ig">
+                                    <input type="datetime-local"
+                                           class="form-control am-form-row-input sty1"
+                                           asp-for="ShowTime">
+                                    <span asp-validation-for="ShowTime" class="form-text text-danger"></span>
+                                </div>
+                                
                             </div>
-                            <span asp-validation-for="ShowTime" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
+                            
 
-                            <div class="input-group em-form-row mb-4 mt-2">
-                                <div class="form-text em-form-row-label">Duration</div>
-                                <input type="text"
-                                       class="form-control em-form-row-input"
-                                       placeholder="eg, 2h 13m"
-                                       asp-for="Duration">
+                            <div class="input-group am-form-row mb-4 mt-2">
+                                <div class="form-text am-form-row-label">Duration</div>
+                                <div class="ig">
+                                    <input type="text"
+                                           class="form-control am-form-row-input"
+                                           placeholder="eg, 2h 13m"
+                                           asp-for="Duration">
+                                    <span asp-validation-for="Duration" class="form-text text-danger"></span>
+                                </div>
+                                
                             </div>
-                            <span asp-validation-for="Duration" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
-
-                            <div class="input-group em-form-row mb-3">
-                                <div class="form-text em-form-row-label">Age Rating</div>
-                                <input type="text"
-                                       class="form-control em-form-row-input sty1"
-                                       placeholder="eg, UA"
-                                       asp-for="AgeRating">
+                            
+                           
+                            <div class="input-group am-form-row mb-3">
+                                <div class="form-text am-form-row-label">Age Rating</div>
+                                <div class="ig">
+                                    <input type="text"
+                                           class="form-control am-form-row-input sty1"
+                                           placeholder="eg, UA"
+                                           asp-for="AgeRating">
+                                    <span asp-validation-for="AgeRating" class="form-text text-danger"></span>
+                                </div>
                             </div>
-                            <span asp-validation-for="AgeRating" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
 
-                            <div class="input-group em-form-row mb-4 mt-2">
-                                <div class="form-text em-form-row-label">Language</div>
-                                <input type="text"
-                                       class="form-control em-form-row-input"
-                                       placeholder="eg, English"
-                                       asp-for="Language">
+                            <div class="input-group am-form-row mb-3">
+                                <div class="form-text am-form-row-label">Language</div>
+                                <div class="ig">
+                                    <input type="text"
+                                           class="form-control am-form-row-input"
+                                           placeholder="eg, English"
+                                           asp-for="Language">
+                                    <span asp-validation-for="Language" class="form-text text-danger"></span>
+                                </div>
                             </div>
-                            <span asp-validation-for="Language" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
+                            
+           
 
-                            <span asp-validation-for="MovieType" class="validations" style="color:red; margin-bottom: 0.8rem;"></span>
-                            <div class="input-group em-form-row-select mb-3">
-                                <div class="form-text em-form-row-label-select">Theatre Type</div>
-                                <select type="text"
-                                        class="form-control em-form-row-input sty1"
+                            <div class="input-group am-form-row-select mb-3">
+                                <div class="form-text am-form-row-label-select">Theatre Type</div>
+                                <div class="ig">
+                                    <select type="text"
+                                        class="form-control am-form-row-input sty1"
+
                                         asp-for="MovieType">
                                     <option selected="true" disabled="true">Choose Theatre Type</option>
                                     <option value="2D">2D</option>
@@ -113,16 +143,21 @@
                                     <option value="4D MAX">4D MAX</option>
                                     <option value="IMAX">IMAX</option>
                                 </select>
+                                </div>
+                                
                             </div>
-                            <div class="input-group em-form-row mb-4 mt-2">
-                                <div class="form-text em-form-row-label">Above 18</div>
-                                <input class="em-checkbox"
-                                       type="checkbox"
-                                       asp-for="IsAdult" />
+                            <div class="input-group am-form-row mb-3">
+                                <div class="form-text am-form-row-label">Above 18</div>
+                                <div class="ig">
+                                    <input class="am-checkbox"
+                                           type="checkbox"
+                                           asp-for="IsAdult" />
+                                </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-6">
-                                    <button type="submit" class="btn btn-success px-4">Save Changes</button>
+                                    <button type="submit" class="btn btn-success px-4">Add Movie</button>
                                 </div>
                                 <div class="col-6 text-right">
                                     <a href="@Url.Action("MovieList","Admin")"><button type="button" class="btn btn-danger px-4">Back</button></a>
@@ -141,32 +176,34 @@
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 <style>
-    .em-form-row {
+    .ig > span {
+        width: 100%;
+        font-size: 0.95rem;
+        font-weight: bolder;
+    }
+    .am-form-row {
         display: flex;
     }
 
-    .em-form-row-label {
-        flex: 0.42
+    .am-form-row-label {
+        flex: 0.35;
+        font: 8px;
     }
 
-
-    .em-form-row-input {
-        /*flex: 0.7;*/
+    .ig {
+        flex: 0.65;
     }
 
-    .em-form-row-select {
+    .am-form-row-select {
         display: flex;
     }
 
-    .em-form-row-label-select {
-        flex: 0.42;
+    .am-form-row-label-select {
+        flex: 0.35;
     }
 
-    .em-checkbox {
+    .am-checkbox {
         height: 30px;
         width: 30px;
-    }
-    .em-checkbox:hover {
-        cursor:pointer;
     }
 </style>
